@@ -1,0 +1,115 @@
+---
+// The CRT intro. Nothing is rendered for visitors without JS: the overlay is built
+// by src/scripts/intro.ts, so crawlers and screen readers get the page as-is.
+import { buildApparitionPool } from '../lib/apparitions';
+import { readApparitionDir } from '../lib/apparitionsFs';
+import { loadSiteConfig } from '../lib/siteConfig';
+
+const { apparitions } = loadSiteConfig();
+const data = { pool: buildApparitionPool(readApparitionDir(), apparitions), pinned: apparitions.pinned };
+---
+<script is:inline>
+  // Decide before first paint whether the intro will run, so return visits never flash it.
+  (function () {
+    var html = document.documentElement;
+    var seen = false;
+    try { seen = sessionStorage.getItem('ps-intro-seen') === '1'; } catch (e) {}
+    html.dataset.introState = seen ? 'done' : 'pending';
+    // Safety net: if the intro script never starts, reveal the page anyway.
+    if (!seen) setTimeout(function () { if (html.dataset.introState === 'pending') html.dataset.introState = 'done'; }, 3000);
+  })();
+</script>
+<script type="application/json" id="intro-data" set:html={JSON.stringify(data)} />
+<script>
+  import { runIntro } from '../scripts/intro';
+  runIntro();
+</script>
+
+<style is:global>
+  html[data-intro-state='pending']::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 99;
+  }
+  html[data-intro-state='playing'] body {
+    overflow: hidden;
+  }
+  #intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #000;
+    overflow: hidden;
+  }
+  #intro .intro-screen,
+  #intro canvas,
+  #intro [data-flash],
+  #intro .intro-scan {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #intro canvas {
+    image-rendering: pixelated;
+  }
+  #intro .intro-scan {
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0 1px, transparent 1px 3px),
+      radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.9) 100%);
+  }
+  #intro [data-apparition] {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(60vmin, 520px);
+    height: min(70vmin, 600px);
+    object-fit: contain;
+    translate: -50% -50%;
+    opacity: 0;
+  }
+  #intro video[data-apparition] {
+    mix-blend-mode: screen;
+  }
+  #intro [data-flash] {
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #intro .intro-wordmark {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    font-family: 'Courier New', Courier, ui-monospace, monospace;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 7vw, 4.5rem);
+    letter-spacing: 0.3em;
+    color: #eee;
+    text-shadow: 3px 0 #ff1f4b, -3px 0 #00e5ff;
+    opacity: 0;
+  }
+  #intro [data-intro-skip] {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 2;
+    padding: 0.5rem 1rem;
+    font: 0.8rem 'Courier New', Courier, monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9a9aa6;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    cursor: pointer;
+  }
+  #intro [data-intro-skip]:hover,
+  #intro [data-intro-skip]:focus-visible {
+    color: #fff;
+    border-color: #ff1f4b;
+  }
+</style>

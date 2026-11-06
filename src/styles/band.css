@@ -280,3 +280,8 @@ section[data-band-section] h2,
     transform: translateX(-2px);
   }
 }
+
+/* #content receives focus programmatically after the intro; don't outline the whole page. */
+main:focus {
+  outline: none;
+}
