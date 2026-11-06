@@ -1,0 +1,39 @@
+---
+import BandLayout from '../layouts/BandLayout.astro';
+---
+<BandLayout title="No Signal" description="This channel is off the air.">
+  <section class="block no-signal">
+    <div class="bars" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <span class="channel">CH 404</span>
+    <h1>NO SIGNAL</h1>
+    <p>This channel is off the air.</p>
+    <div class="actions"><a class="button" href="/">Back to the transmission</a></div>
+  </section>
+</BandLayout>
+
+<style>
+  .no-signal {
+    text-align: center;
+  }
+  .no-signal .actions {
+    justify-content: center;
+  }
+  .bars {
+    display: flex;
+    height: 8rem;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+  }
+  .bars span {
+    flex: 1;
+  }
+  .bars span:nth-child(1) { background: #c0c0c0; }
+  .bars span:nth-child(2) { background: #c0c000; }
+  .bars span:nth-child(3) { background: #00c0c0; }
+  .bars span:nth-child(4) { background: #00c000; }
+  .bars span:nth-child(5) { background: #c000c0; }
+  .bars span:nth-child(6) { background: #c00000; }
+  .bars span:nth-child(7) { background: #0000c0; }
+</style>
