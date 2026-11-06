@@ -2,7 +2,7 @@
 // Without JS the form still posts directly to Formspree.
 
 const OK = "Thanks — we'll get back to you.";
-const FAIL = "Sorry, that couldn't send. Please try again or email us directly.";
+const FAIL = "Sorry, that couldn't send. Please try again in a few minutes.";
 
 export function enhanceBookingForm(form: HTMLFormElement): void {
   const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');

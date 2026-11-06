@@ -130,3 +130,15 @@ test.describe('no js', () => {
     for (const s of await page.locator('[data-band-section]').all()) await expect(s).toBeVisible();
   });
 });
+
+test('an animation error still ends the intro on its own', async ({ page }) => {
+  await page.addInitScript(() => {
+    Element.prototype.animate = () => {
+      throw new Error('animate unsupported');
+    };
+  });
+  await withPool(page, []);
+  await page.goto('/');
+  await done(page);
+  await expect(page.locator('#intro')).toHaveCount(0);
+});

@@ -1,15 +1,13 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { assertShowDates, isRealDate } from './lib/showDates';
+
+// Fail the build on impossible dates exactly as typed (see showDates.ts).
+assertShowDates();
 
 // Every collection reads *.md from its folder; README.md files are instructions, not content.
 const md = (folder: string) => glob({ pattern: ['*.md', '!README.md'], base: `./src/content/${folder}` });
-
-function isRealDate(s: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
-  const d = new Date(`${s}T00:00:00Z`);
-  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s;
-}
 
 const band = defineCollection({
   loader: md('band'),

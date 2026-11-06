@@ -23,6 +23,10 @@ Each folder has its own `README.md` with a copy-paste example.
   `YYYY-MM-DD-venue.md`, and change the details. Past shows disappear by themselves.
 - **Add an apparition:** upload a transparent PNG (or a video) to `public/apparitions/`.
   To always use one, set `apparitions.pinned` in `site.config.yaml`.
+- **Nightly rebuild:** GitHub pauses scheduled runs if the repo has had no commits for 60
+  days. Past shows are still hidden in visitors' browsers, but to restart the nightly
+  rebuild go to **Actions → Deploy site → Enable workflow** (GitHub emails you when it
+  pauses), or just commit any change.
 - **If a commit breaks the build** (e.g. a badly written date), the site keeps showing the
   last good version. The failed run under **Actions** says which file and what's wrong.
 

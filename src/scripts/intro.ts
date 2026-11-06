@@ -177,9 +177,9 @@ export function runIntro(): void {
     node.animate(keyframes, { duration, easing, fill: 'forwards' }).finished;
 
   const play = reduced ? playReduced : playFull;
-  play().then(finish, () => {
-    /* aborted by skip */
-  });
+  // Skips reject with an abort (finish already ran); any real error also ends the intro
+  // so a visitor is never left behind the overlay. finish() is safe to call twice.
+  play().then(finish, finish);
 
   async function playReduced() {
     const s = abort.signal;

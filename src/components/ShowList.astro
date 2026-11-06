@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { loadSiteConfig } from '../lib/siteConfig';
 
 interface Props {
   shows: CollectionEntry<'shows'>[];
@@ -7,6 +8,7 @@ interface Props {
 }
 const { shows, limit } = Astro.props;
 const list = limit ? shows.slice(0, limit) : shows;
+const { timezone } = loadSiteConfig();
 
 function prettyDate(iso: string): string {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', {
@@ -18,22 +20,38 @@ function prettyDate(iso: string): string {
   });
 }
 ---
-{list.length === 0 ? (
-  <p data-empty-shows>
+<div data-show-list data-timezone={timezone}>
+  <p data-empty-shows hidden={list.length > 0}>
     No shows announced yet. Want us in your town? <a href="/booking">Book us</a>.
   </p>
-) : (
-  <ul class="shows">
-    {list.map((s) => (
-      <li data-show-date={s.data.date}>
-        <time datetime={s.data.date}>{prettyDate(s.data.date)}</time>
-        <div class="where">
-          <strong>{s.data.venue}</strong>
-          <span>{s.data.city}{s.data.doors && ` · doors ${s.data.doors}`}</span>
-        </div>
-        {s.data.tickets ? <a href={s.data.tickets} rel="noopener">Tickets</a> : <span />}
-        {s.body?.trim() && <p class="notes">{s.body.trim()}</p>}
-      </li>
-    ))}
-  </ul>
-)}
+  {list.length > 0 && (
+    <ul class="shows">
+      {list.map((s) => (
+        <li data-show-date={s.data.date}>
+          <time datetime={s.data.date}>{prettyDate(s.data.date)}</time>
+          <div class="where">
+            <strong>{s.data.venue}</strong>
+            <span>{s.data.city}{s.data.doors && ` · doors ${s.data.doors}`}</span>
+          </div>
+          {s.data.tickets ? <a href={s.data.tickets} rel="noopener">Tickets</a> : <span />}
+          {s.body?.trim() && <p class="notes">{s.body.trim()}</p>}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
+
+<script>
+  // The site rebuilds nightly to drop past shows, but GitHub can pause scheduled builds.
+  // Hide anything already past in the visitor's browser too, using the site timezone.
+  import { todayIn } from '../lib/shows';
+  for (const box of document.querySelectorAll<HTMLElement>('[data-show-list]')) {
+    const today = todayIn(box.dataset.timezone || 'America/New_York');
+    const items = [...box.querySelectorAll<HTMLElement>('[data-show-date]')];
+    for (const li of items) if ((li.dataset.showDate ?? '') < today) li.hidden = true;
+    if (items.length && items.every((li) => li.hidden)) {
+      box.querySelector('ul')?.setAttribute('hidden', '');
+      box.querySelector<HTMLElement>('[data-empty-shows]')?.removeAttribute('hidden');
+    }
+  }
+</script>

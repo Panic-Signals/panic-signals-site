@@ -53,6 +53,7 @@ test('error keeps input', async ({ page }) => {
   await fill(page);
   await page.click('[data-booking] button[type="submit"]');
   await expect(page.locator('[data-booking-status]')).toContainText("couldn't send");
+  await expect(page.locator('[data-booking-status]')).not.toContainText('email us');
   await expect(page.locator('[name="message"]')).toHaveValue('Want you to headline.');
   await expect(page.locator('[data-booking] button[type="submit"]')).toBeEnabled();
 });
