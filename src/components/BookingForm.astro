@@ -1,0 +1,98 @@
+---
+import { loadSiteConfig } from '../lib/siteConfig';
+const { formspreeEndpoint } = loadSiteConfig();
+---
+<form class="booking" data-booking action={formspreeEndpoint} method="POST">
+  <input type="hidden" name="_subject" value="Booking request — panicsignals.tv" />
+  <div class="field">
+    <label for="b-name">Name</label>
+    <input id="b-name" name="name" autocomplete="name" required />
+  </div>
+  <div class="field">
+    <label for="b-email">Email</label>
+    <input id="b-email" name="email" type="email" autocomplete="email" required />
+  </div>
+  <div class="field">
+    <label for="b-event">Venue / event</label>
+    <input id="b-event" name="event" required />
+  </div>
+  <div class="field">
+    <label for="b-city">City</label>
+    <input id="b-city" name="city" autocomplete="address-level2" required />
+  </div>
+  <div class="field">
+    <label for="b-date">Date <span>(optional)</span></label>
+    <input id="b-date" name="date" type="date" />
+  </div>
+  <div class="field wide">
+    <label for="b-message">Message</label>
+    <textarea id="b-message" name="message" rows="6" required></textarea>
+  </div>
+  <div class="visually-hidden" aria-hidden="true">
+    <label for="b-gotcha">Leave this empty</label>
+    <input id="b-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
+  <div class="wide">
+    <button class="button" type="submit">Send request</button>
+    <p data-booking-status role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<script>
+  import { enhanceBookingForm } from '../scripts/booking';
+  const form = document.querySelector<HTMLFormElement>('form[data-booking]');
+  if (form) enhanceBookingForm(form);
+</script>
+
+<style>
+  .booking {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.25rem 1.5rem;
+    margin-top: 2rem;
+  }
+  .wide {
+    grid-column: 1 / -1;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  label {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--phosphor);
+  }
+  label span {
+    color: var(--dim);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  input,
+  textarea {
+    font: inherit;
+    color: var(--text);
+    background: var(--bg-raise);
+    border: 1px solid var(--line);
+    padding: 0.65rem 0.75rem;
+    color-scheme: dark;
+  }
+  input:focus,
+  textarea:focus {
+    border-color: var(--cyan);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--cyan);
+  }
+  [data-booking-status] {
+    min-height: 1.5em;
+    margin: 1rem 0 0;
+  }
+  [data-booking-status].ok {
+    color: var(--phosphor);
+  }
+  [data-booking-status].err {
+    color: var(--red);
+  }
+</style>
