@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import SoftwareLayout from '../../layouts/SoftwareLayout.astro';
+
+const projects = (await getCollection('software')).sort((a, b) => a.data.order - b.data.order);
+---
+<SoftwareLayout title="Software" description="Software projects by Panic Signals.">
+  <span class="eyebrow">Panic Signals // Software</span>
+  <h1>Software</h1>
+  <p class="lede">Tools we build for making music.</p>
+  <div class="projects">
+    {projects.map((p) => (
+      <article data-project={p.id}>
+        <h2><a href={`/software/${p.id}`}>{p.data.title}</a></h2>
+        <p>{p.data.summary}</p>
+        <p><span class="status">{p.data.status}</span></p>
+      </article>
+    ))}
+  </div>
+</SoftwareLayout>
