@@ -1,0 +1,40 @@
+[tools]
+node = "24"
+
+[tasks.setup]
+description = "Install dependencies"
+run = "npm ci"
+
+[tasks.dev]
+description = "Run the site locally at http://localhost:4321"
+run = "npm run dev"
+
+[tasks.build]
+description = "Build the static site into dist/"
+run = "npm run build"
+
+[tasks.preview]
+description = "Build, then serve the built site locally"
+depends = ["build"]
+run = "npm run preview"
+
+[tasks.test]
+description = "Run unit tests"
+run = "npm test"
+
+[tasks.e2e]
+description = "Run browser tests (installs Playwright browsers if needed)"
+run = ["npx playwright install chromium webkit", "npm run e2e"]
+
+[tasks.deploy]
+description = "Test, build, and push main to GitHub (GitHub Actions publishes the site)"
+depends = ["test", "build"]
+run = '''
+git diff --quiet && git diff --cached --quiet || { echo "You have uncommitted changes. Commit first."; exit 1; }
+[ "$(git branch --show-current)" = "main" ] || { echo "Switch to the main branch to deploy."; exit 1; }
+git push origin main
+'''
+
+[tasks.deploy-status]
+description = "Watch the latest GitHub Pages deploy run"
+run = "gh run watch --exit-status $(gh run list -w deploy.yml -L1 --json databaseId -q '.[0].databaseId')"

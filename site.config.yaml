@@ -1,0 +1,23 @@
+# panicsignals.tv settings. Edit on GitHub; the site rebuilds on commit.
+
+# Booking form address from formspree.io (Forms → your form → Integration).
+formspreeEndpoint: https://formspree.io/f/REPLACE_ME
+
+# Timezone used to decide when a show is in the past.
+timezone: America/New_York
+
+# What pushes through the static in the intro.
+# Files you drop in public/apparitions/ are used automatically.
+apparitions:
+  # Optional: always use this one. Either a filename from public/apparitions/
+  # (e.g. hand.png) or one of the video URLs listed below. Leave empty for random.
+  pinned:
+  # Optional: hosted video files (direct .mp4 / .webm / .mov links, not YouTube/Vimeo).
+  videos: []
+  #  - url: https://cdn.example.com/hand.webm
+  #    poster: https://cdn.example.com/hand.png
+
+# Links shown in the footer.
+social: []
+#  - label: Instagram
+#    url: https://instagram.com/panicsignals
