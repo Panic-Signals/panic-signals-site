@@ -253,7 +253,7 @@ section[data-band-section] h2,
   }
   h1,
   .wordmark {
-    animation: tear 7s steps(1) infinite;
+    animation: tear 12s steps(1) infinite;
   }
 }
 @keyframes roll {
@@ -262,22 +262,24 @@ section[data-band-section] h2,
   }
 }
 @keyframes tear {
+  /* Every 12s: a slow stutter, each glitch frame held ~0.4s. */
   0%,
-  92%,
+  88%,
   100% {
     transform: none;
     clip-path: none;
   }
-  93% {
-    transform: translateX(-4px);
+  89% {
+    transform: translateX(-3px);
     clip-path: inset(20% 0 45% 0);
   }
-  95% {
-    transform: translateX(5px);
+  92.5% {
+    transform: translateX(3px);
     clip-path: inset(55% 0 10% 0);
   }
-  97% {
-    transform: translateX(-2px);
+  96% {
+    transform: translateX(-1px);
+    clip-path: none;
   }
 }
 
