@@ -1,0 +1,34 @@
+---
+import '../styles/band.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Panic Signals: industrial, goth, IDM and glitch.' } = Astro.props;
+const fullTitle = title === 'PANIC SIGNALS' ? title : `${title} · PANIC SIGNALS`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot name="before" />
+    <Nav />
+    <main id="content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

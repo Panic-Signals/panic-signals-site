@@ -1,12 +1,36 @@
 ---
+import { render } from 'astro:content';
+import BandLayout from '../layouts/BandLayout.astro';
+import ShowList from '../components/ShowList.astro';
+import { getBandSections, getUpcomingShows } from '../lib/content';
+
+const sections = await Promise.all(
+  (await getBandSections()).map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+);
+const shows = await getUpcomingShows();
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>PANIC SIGNALS</title>
-  </head>
-  <body>
+<BandLayout title="PANIC SIGNALS">
+  <div class="hero">
+    <span class="channel">CH 03 · TRANSMISSION RECEIVED</span>
     <h1>PANIC SIGNALS</h1>
-  </body>
-</html>
+    <p>Industrial · Goth · IDM · Glitch</p>
+  </div>
+
+  {sections.map(({ entry, Content }, i) => (
+    <section id={entry.id} data-band-section>
+      <span class="channel">{String(i + 1).padStart(2, '0')} //</span>
+      <h2>{entry.data.title}</h2>
+      <Content />
+    </section>
+  ))}
+
+  <section id="shows" class="block">
+    <span class="channel">LIVE //</span>
+    <h2>Upcoming Shows</h2>
+    <ShowList shows={shows} limit={3} />
+    <div class="actions">
+      <a class="button" href="/shows">All shows</a>
+      <a class="button" href="/booking">Book us</a>
+    </div>
+  </section>
+</BandLayout>

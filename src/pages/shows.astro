@@ -1,0 +1,17 @@
+---
+import BandLayout from '../layouts/BandLayout.astro';
+import ShowList from '../components/ShowList.astro';
+import { getUpcomingShows } from '../lib/content';
+
+const shows = await getUpcomingShows();
+---
+<BandLayout title="Shows" description="Upcoming Panic Signals shows.">
+  <section class="block">
+    <span class="channel">LIVE //</span>
+    <h1>Shows</h1>
+    <ShowList shows={shows} />
+    <div class="actions">
+      <a class="button" href="/booking">Book us</a>
+    </div>
+  </section>
+</BandLayout>

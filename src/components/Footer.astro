@@ -1,0 +1,12 @@
+---
+import { loadSiteConfig } from '../lib/siteConfig';
+const { social } = loadSiteConfig();
+---
+<footer class="site-footer">
+  <span>© {new Date().getFullYear()} Panic Signals</span>
+  {social.length > 0 && (
+    <ul>
+      {social.map((s) => <li><a href={s.url} rel="me noopener">{s.label}</a></li>)}
+    </ul>
+  )}
+</footer>
