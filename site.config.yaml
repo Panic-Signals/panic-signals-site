@@ -1,7 +1,7 @@
 # panicsignals.tv settings. Edit on GitHub; the site rebuilds on commit.
 
 # Booking form address from formspree.io (Forms → your form → Integration).
-formspreeEndpoint: https://formspree.io/f/REPLACE_ME
+formspreeEndpoint: https://formspree.io/f/xrppvorn
 
 # Timezone used to decide when a show is in the past.
 timezone: America/New_York
