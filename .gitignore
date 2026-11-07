@@ -6,3 +6,6 @@ dist/
 test-results/
 playwright-report/
 .DS_Store
+
+# Obsidian editor settings
+.obsidian/
