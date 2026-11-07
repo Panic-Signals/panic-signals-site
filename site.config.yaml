@@ -18,6 +18,6 @@ apparitions:
   #    poster: https://cdn.example.com/hand.png
 
 # Links shown in the footer.
-social: []
-#  - label: Instagram
-#    url: https://instagram.com/panicsignals
+social:
+  - label: Instagram
+    url: https://www.instagram.com/panic.signals/

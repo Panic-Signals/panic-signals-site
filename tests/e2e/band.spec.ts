@@ -8,6 +8,13 @@ test('home renders the band sections in order', async ({ page }) => {
   await expect(page.locator('[data-band-section] h2')).toHaveText(['About', 'Transmissions']);
 });
 
+test('Transmissions and the footer link to Instagram', async ({ page }) => {
+  await page.goto('/');
+  const instagram = 'a[href="https://www.instagram.com/panic.signals/"]';
+  await expect(page.locator(`[data-band-section] ${instagram}`)).toBeVisible();
+  await expect(page.locator(`footer ${instagram}`)).toHaveText('Instagram');
+});
+
 test('band pages use the monospace font', async ({ page }) => {
   await page.goto('/');
   const font = await page.evaluate(() => getComputedStyle(document.body).fontFamily);
