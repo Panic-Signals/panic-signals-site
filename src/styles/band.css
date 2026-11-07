@@ -85,6 +85,18 @@ h3 {
   text-shadow: 2px 0 var(--red), -2px 0 var(--cyan);
 }
 
+.wordmark.logo {
+  display: block;
+  line-height: 0;
+}
+/* The logo carries the wordmark's red and cyan split. */
+.wordmark.logo img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(2px 0 0 var(--red)) drop-shadow(-2px 0 0 var(--cyan));
+}
+
 .site-header {
   display: flex;
   flex-wrap: wrap;

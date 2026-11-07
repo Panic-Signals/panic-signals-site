@@ -36,3 +36,13 @@ test('the site icons load', async ({ page, request }) => {
     expect((await request.get(href)).ok()).toBe(true);
   }
 });
+
+test('the header shows the logo, linked home, with the glitch split', async ({ page }) => {
+  for (const path of ['/', '/software']) {
+    await page.goto(path);
+    const logo = page.locator('header a.wordmark[href="/"] img[alt="Panic Signals"]');
+    await expect(logo).toBeVisible();
+    expect(await logo.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
+    expect(await logo.evaluate((el) => getComputedStyle(el).filter)).toContain('drop-shadow');
+  }
+});
