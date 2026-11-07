@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { skipIntro } from './helpers';
 
-const PAGES = ['/', '/shows', '/booking', '/software', '/software/deckard'];
+const PAGES = ['/', '/shows', '/booking', '/software', '/software/deckard', '/software/eps16plus', '/software/deckard/manual'];
 
 test.beforeEach(async ({ page }) => skipIntro(page));
 
@@ -27,4 +27,33 @@ test('unknown pages show the NO SIGNAL 404', async ({ page }) => {
   expect(res?.status()).toBe(404);
   await expect(page.locator('main')).toContainText('NO SIGNAL');
   await expect(page.locator('main a[href="/"]')).toBeVisible();
+});
+
+test('the site icons load', async ({ page, request }) => {
+  await page.goto('/');
+  for (const href of ['/favicon.ico', '/icon-192.png', '/apple-touch-icon.png']) {
+    await expect(page.locator(`head link[href="${href}"]`)).toHaveCount(1);
+    expect((await request.get(href)).ok()).toBe(true);
+  }
+});
+
+test('the header shows the logo, linked home, with the glitch split', async ({ page }) => {
+  for (const path of ['/', '/software']) {
+    await page.goto(path);
+    const logo = page.locator('header a.wordmark[href="/"] img[alt="Panic Signals"]');
+    await expect(logo).toBeVisible();
+    expect(await logo.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
+    expect(await logo.evaluate((el) => getComputedStyle(el).filter)).toContain('drop-shadow');
+  }
+});
+
+test('the band header sits above the CRT overlay, so nothing dims the logo', async ({ page }) => {
+  await page.goto('/');
+  const logo = page.locator('header.site-header a.wordmark img');
+  const box = (await logo.boundingBox())!;
+  const top = await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.closest('header')?.className, [box.x + box.width / 2, box.y + box.height / 2]);
+  expect(top).toBe('site-header');
+  const z = await page.locator('header.site-header').evaluate((el) => Number(getComputedStyle(el).zIndex));
+  const overlay = await page.evaluate(() => Number(getComputedStyle(document.body, '::after').zIndex));
+  expect(z).toBeGreaterThan(overlay);
 });

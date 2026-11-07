@@ -85,7 +85,8 @@ test.describe('without JS', () => {
   test('form posts straight to Formspree', async ({ page }) => {
     await page.goto('/booking');
     const form = page.locator('[data-booking]');
-    await expect(form).toHaveAttribute('action', 'https://formspree.io/f/REPLACE_ME');
+    // The address set in site.config.yaml, not the placeholder.
+    await expect(form).toHaveAttribute('action', /^https:\/\/formspree\.io\/f\/(?!REPLACE_ME)\w+$/);
     expect(await form.evaluate((f: HTMLFormElement) => f.method)).toBe('post');
   });
 });

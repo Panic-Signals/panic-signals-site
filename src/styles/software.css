@@ -8,7 +8,8 @@
   --cyan: #00e5ff;
   --phosphor: #7dffb0;
   --line: #26262e;
-  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ui-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --mono: 'Courier New', Courier, ui-monospace, 'SFMono-Regular', Menlo, monospace;
   color-scheme: dark;
 }
@@ -39,6 +40,10 @@ a:hover {
 :focus-visible {
   outline: 2px solid var(--phosphor);
   outline-offset: 3px;
+}
+main.wide {
+  max-width: 1480px;
+  padding-top: 2rem;
 }
 main:focus {
   outline: none;
@@ -76,6 +81,18 @@ kbd {
   color: #eee;
   text-decoration: none;
   text-shadow: 1px 0 var(--red), -1px 0 var(--cyan);
+}
+
+.wordmark.logo {
+  display: block;
+  line-height: 0;
+}
+/* The logo carries the wordmark's red and cyan split. */
+.wordmark.logo img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(1px 0 0 var(--red)) drop-shadow(-1px 0 0 var(--cyan));
 }
 
 .site-header {
@@ -154,6 +171,29 @@ main {
   border-radius: 999px;
   color: var(--phosphor);
   font-size: 0.8rem;
+}
+
+a.status {
+  text-decoration: none;
+}
+a.status:hover {
+  color: #000;
+  background: var(--phosphor);
+}
+
+.video {
+  margin: 2rem 0;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .notice {

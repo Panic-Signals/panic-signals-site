@@ -42,7 +42,28 @@ const software = defineCollection({
     repo: z.url(),
     status: z.string(),
     order: z.number(),
+    // The project's manual, if it has one: the status links there.
+    manual: z.string().startsWith('/').optional(),
+    // A version that runs in the browser, if there is one: the page's main button, and
+    // the status links there when there's no manual.
+    app: z.url().optional(),
+    // A YouTube link, embedded on the project's page under its buttons.
+    video: z.url().optional(),
   }),
 });
 
-export const collections = { band, shows, software };
+// The DECKARD manual: one chapter per file, numbered by `order`.
+const manual = defineCollection({
+  loader: md('deckard-manual'),
+  schema: z.object({
+    title: z.string(),
+    order: z.number(),
+    description: z.string(),
+    // Chapters of NI's Maschine manual this one builds on, shown in a box at the top.
+    maschine: z.array(z.string()).optional(),
+    // A chapter about something not in a DECKARD release yet.
+    preview: z.string().optional(),
+  }),
+});
+
+export const collections = { band, shows, software, manual };
