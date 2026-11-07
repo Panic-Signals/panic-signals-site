@@ -44,6 +44,8 @@ const software = defineCollection({
     order: z.number(),
     // The project's manual, if it has one: the status links there.
     manual: z.string().startsWith('/').optional(),
+    // A version that runs in the browser, if there is one: the page's main button.
+    app: z.url().optional(),
   }),
 });
 

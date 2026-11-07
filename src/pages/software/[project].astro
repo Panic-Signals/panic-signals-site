@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import SoftwareLayout from '../../layouts/SoftwareLayout.astro';
+
+// A page for each software project, except those with a page of their own.
+export async function getStaticPaths() {
+  const OWN_PAGES = ['deckard'];
+  const projects = await getCollection('software');
+  return projects.filter((p) => !OWN_PAGES.includes(p.id)).map((entry) => ({ params: { project: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, summary, repo, app, manual } = entry.data;
+---
+<SoftwareLayout title={title} description={summary}>
+  <span class="eyebrow">Software</span>
+  <h1>{title}</h1>
+  <p class="lede">{summary}</p>
+  <div class="actions">
+    {app && <a class="button primary" href={app}>Open in your browser</a>}
+    {manual && <a class="button" href={manual}>Read the manual</a>}
+    <a class="button" href={repo}>Source on GitHub</a>
+  </div>
+  <Content />
+</SoftwareLayout>

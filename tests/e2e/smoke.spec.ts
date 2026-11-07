@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { skipIntro } from './helpers';
 
-const PAGES = ['/', '/shows', '/booking', '/software', '/software/deckard'];
+const PAGES = ['/', '/shows', '/booking', '/software', '/software/deckard', '/software/eps16plus', '/software/deckard/manual'];
 
 test.beforeEach(async ({ page }) => skipIntro(page));
 

@@ -37,3 +37,13 @@ test('software pages have no scanline overlay', async ({ page }) => {
   const content = await page.evaluate(() => getComputedStyle(document.body, '::before').content);
   expect(['none', 'normal', '']).toContain(content);
 });
+
+test('software list shows the EPS16+ utility, and its page opens the online editor', async ({ page }) => {
+  await page.goto('/software');
+  const card = page.locator('[data-project="eps16plus"]');
+  await expect(card).toContainText('EPS16+');
+  await card.locator('a[href="/software/eps16plus"]').click();
+  await expect(page.locator('h1')).toContainText('EPS16+ Wavesample Utility');
+  await expect(page.locator('main a[href="https://summitt.github.io/EnsoniqEPS16Plus/"]').first()).toBeVisible();
+  await expect(page.locator('main a[href="https://github.com/summitt/EnsoniqEPS16Plus"]').first()).toBeVisible();
+});
