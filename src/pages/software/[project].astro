@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import SoftwareLayout from '../../layouts/SoftwareLayout.astro';
+import YouTube from '../../components/YouTube.astro';
 
 // A page for each software project, except those with a page of their own.
 export async function getStaticPaths() {
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, summary, repo, app, manual } = entry.data;
+const { title, summary, repo, app, manual, video } = entry.data;
 ---
 <SoftwareLayout title={title} description={summary}>
   <span class="eyebrow">Software</span>
@@ -22,5 +23,6 @@ const { title, summary, repo, app, manual } = entry.data;
     {manual && <a class="button" href={manual}>Read the manual</a>}
     <a class="button" href={repo}>Source on GitHub</a>
   </div>
+  {video && <YouTube url={video} title={`${title} video`} />}
   <Content />
 </SoftwareLayout>

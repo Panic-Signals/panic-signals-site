@@ -46,6 +46,8 @@ const software = defineCollection({
     manual: z.string().startsWith('/').optional(),
     // A version that runs in the browser, if there is one: the page's main button.
     app: z.url().optional(),
+    // A YouTube link, embedded on the project's page under its buttons.
+    video: z.url().optional(),
   }),
 });
 

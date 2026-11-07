@@ -47,3 +47,11 @@ test('software list shows the EPS16+ utility, and its page opens the online edit
   await expect(page.locator('main a[href="https://summitt.github.io/EnsoniqEPS16Plus/"]').first()).toBeVisible();
   await expect(page.locator('main a[href="https://github.com/summitt/EnsoniqEPS16Plus"]').first()).toBeVisible();
 });
+
+test('deckard page embeds its video', async ({ page }) => {
+  await page.goto('/software/deckard');
+  const frame = page.locator('main .video iframe');
+  await expect(frame).toHaveAttribute('src', /youtube-nocookie\.com\/embed\/BENUyHwMlmg/);
+  const box = await frame.boundingBox();
+  expect(box && Math.round((box.width / box.height) * 9)).toBe(16);
+});

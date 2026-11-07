@@ -1,11 +1,12 @@
 ---
 import { getEntry, render } from 'astro:content';
 import SoftwareLayout from '../../layouts/SoftwareLayout.astro';
+import YouTube from '../../components/YouTube.astro';
 
 const entry = await getEntry('software', 'deckard');
 if (!entry) throw new Error('src/content/software/deckard.md is missing');
 const { Content } = await render(entry);
-const { title, summary, repo, status } = entry.data;
+const { title, summary, repo, status, video } = entry.data;
 ---
 <SoftwareLayout title={title} description={summary}>
   <span class="eyebrow">Software // Groovebox</span>
@@ -16,6 +17,7 @@ const { title, summary, repo, status } = entry.data;
     <a class="button" href="/software/deckard/manual">Read the manual</a>
     <a class="button" href={repo}>Source on GitHub</a>
   </div>
+  {video && <YouTube url={video} title={`${title} video`} />}
   <Content />
   <div class="notice">
     <strong>{status}.</strong> The <a href="/software/deckard/manual">DECKARD manual</a>

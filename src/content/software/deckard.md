@@ -4,6 +4,7 @@ summary: A groovebox for your computer that works like Maschine — scenes and p
 repo: https://github.com/Panic-Signals/Deckard
 status: Manual available
 manual: /software/deckard/manual
+video: https://www.youtube.com/watch?v=BENUyHwMlmg
 order: 1
 ---
 
