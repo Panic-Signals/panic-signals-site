@@ -55,3 +55,11 @@ test('deckard page embeds its video', async ({ page }) => {
   const box = await frame.boundingBox();
   expect(box && Math.round((box.width / box.height) * 9)).toBe(16);
 });
+
+test('the EPS16+ status in the software list opens the online editor', async ({ page }) => {
+  await page.goto('/software');
+  await expect(page.locator('[data-project="eps16plus"] a.status')).toHaveAttribute(
+    'href',
+    'https://summitt.github.io/EnsoniqEPS16Plus/',
+  );
+});

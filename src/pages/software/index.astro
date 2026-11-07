@@ -14,8 +14,8 @@ const projects = (await getCollection('software')).sort((a, b) => a.data.order -
         <h2><a href={`/software/${p.id}`}>{p.data.title}</a></h2>
         <p>{p.data.summary}</p>
         <p>
-          {p.data.manual ? (
-            <a class="status" href={p.data.manual}>{p.data.status}</a>
+          {p.data.manual || p.data.app ? (
+            <a class="status" href={p.data.manual ?? p.data.app}>{p.data.status}</a>
           ) : (
             <span class="status">{p.data.status}</span>
           )}

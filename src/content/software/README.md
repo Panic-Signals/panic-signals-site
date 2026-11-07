@@ -9,7 +9,7 @@ summary: One sentence shown in the list.
 repo: https://github.com/Panic-Signals/Deckard
 status: Manual available
 manual: /software/deckard/manual   # optional: the status links here
-app: https://example.com/app        # optional: runs in the browser; the main button opens it
+app: https://example.com/app        # optional: runs in the browser; the main button (and the status, with no manual) opens it
 video: https://www.youtube.com/watch?v=BENUyHwMlmg   # optional: shown under the buttons
 order: 1
 ---

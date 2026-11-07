@@ -44,7 +44,8 @@ const software = defineCollection({
     order: z.number(),
     // The project's manual, if it has one: the status links there.
     manual: z.string().startsWith('/').optional(),
-    // A version that runs in the browser, if there is one: the page's main button.
+    // A version that runs in the browser, if there is one: the page's main button, and
+    // the status links there when there's no manual.
     app: z.url().optional(),
     // A YouTube link, embedded on the project's page under its buttons.
     video: z.url().optional(),
