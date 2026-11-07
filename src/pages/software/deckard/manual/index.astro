@@ -1,0 +1,32 @@
+---
+import ManualLayout from '../../../../layouts/ManualLayout.astro';
+import { getManualChapters } from '../../../../lib/content';
+
+const chapters = await getManualChapters();
+const nav = chapters.map((c) => ({ number: c.number, href: c.href, title: c.entry.data.title }));
+---
+<ManualLayout
+  title="DECKARD Manual"
+  description="How DECKARD differs from Maschine, and the features it adds: modulation, expressive recording, the Launchpad Pro, multi-output plug-ins and its own synths."
+  chapters={nav}
+>
+  <p class="crumbs"><a href="/software/deckard">DECKARD</a></p>
+  <h1>DECKARD Manual</h1>
+  <p class="lede">
+    DECKARD works like Maschine, so NI’s Maschine manuals still describe most of it. This
+    manual covers what’s different: how to set DECKARD up, what it changes on the
+    controllers, and the features Maschine doesn’t have.
+  </p>
+
+  <ol class="contents">
+    {chapters.map((c) => (
+      <li>
+        <a href={c.href}>
+          <span class="n">{c.number}</span>
+          <span class="t">{c.entry.data.title}</span>
+          <span class="d">{c.entry.data.description}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</ManualLayout>

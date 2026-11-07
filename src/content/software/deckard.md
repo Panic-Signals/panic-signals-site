@@ -2,7 +2,8 @@
 title: DECKARD
 summary: A groovebox for your computer that works like Maschine — scenes and patterns, a song arrangement, sixteen pads per group, a sampler, drum synths, effects and a mixer.
 repo: https://github.com/Panic-Signals/Deckard
-status: Manual coming soon
+status: Manual available
+manual: /software/deckard/manual
 order: 1
 ---
 

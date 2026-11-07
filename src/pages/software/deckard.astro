@@ -13,12 +13,13 @@ const { title, summary, repo, status } = entry.data;
   <p class="lede">{summary}</p>
   <div class="actions">
     <a class="button primary" href={`${repo}/releases`}>Download</a>
+    <a class="button" href="/software/deckard/manual">Read the manual</a>
     <a class="button" href={repo}>Source on GitHub</a>
   </div>
   <Content />
   <div class="notice">
-    <strong>{status}.</strong> Until then, the
-    <a href={repo}>README on GitHub</a> covers installing and using DECKARD, and
-    <a href={`${repo}/releases`}>the releases page</a> has the release notes.
+    <strong>{status}.</strong> The <a href="/software/deckard/manual">DECKARD manual</a>
+    covers what DECKARD adds to Maschine and how it differs.
+    <a href={`${repo}/releases`}>The releases page</a> has the release notes.
   </div>
 </SoftwareLayout>

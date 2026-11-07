@@ -1,0 +1,95 @@
+---
+import SoftwareLayout from './SoftwareLayout.astro';
+import '../styles/manual.css';
+
+interface Chapter {
+  number: number;
+  href: string;
+  title: string;
+}
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  chapters: Chapter[];
+  // The chapter shown (its number), or none on the contents page.
+  current?: number;
+  headings?: Heading[];
+}
+const { title, description, chapters, current, headings = [] } = Astro.props;
+const sections = headings.filter((h) => h.depth === 2);
+const isCurrent = (c: Chapter) => c.number === current;
+---
+<SoftwareLayout title={current ? `${title} · DECKARD Manual` : title} description={description} wide>
+  <div class="manual">
+    <nav class="manual-nav" aria-label="Manual chapters">
+      <a class="manual-home" href="/software/deckard/manual" aria-current={current ? undefined : 'page'}>
+        DECKARD Manual
+      </a>
+      <ol>
+        {chapters.map((c) => (
+          <li>
+            <a href={c.href} aria-current={isCurrent(c) ? 'page' : undefined}>
+              <span class="n">{c.number}</span>
+              <span>{c.title}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <details class="manual-nav-mobile">
+      <summary>Chapters</summary>
+      <ol>
+        {chapters.map((c) => (
+          <li>
+            <a href={c.href} aria-current={isCurrent(c) ? 'page' : undefined}>
+              <span class="n">{c.number}</span> {c.title}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </details>
+
+    <article class="manual-body" data-chapter={current} style={current ? `counter-reset: chapter ${current} h2 0` : undefined}>
+      <slot />
+    </article>
+
+    {sections.length > 0 && (
+      <nav class="manual-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ol>
+          {sections.map((h, i) => (
+            <li><a href={`#${h.slug}`}><span class="n">{current}.{i + 1}</span> {h.text}</a></li>
+          ))}
+        </ol>
+      </nav>
+    )}
+  </div>
+  <script>
+    // Mark the section being read in the "On this page" rail.
+    const links = new Map(
+      [...document.querySelectorAll<HTMLAnchorElement>('.manual-toc a')].map((a) => [decodeURIComponent(a.hash.slice(1)), a]),
+    );
+    if (links.size && 'IntersectionObserver' in window) {
+      const seen = new Set<string>();
+      const obs = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) e.isIntersecting ? seen.add(e.target.id) : seen.delete(e.target.id);
+          const first = [...links.keys()].find((id) => seen.has(id));
+          if (!first) return;
+          links.forEach((a, id) => a.classList.toggle('active', id === first));
+        },
+        { rootMargin: '0px 0px -60% 0px' },
+      );
+      links.forEach((_, id) => {
+        const h = document.getElementById(id);
+        if (h) obs.observe(h);
+      });
+    }
+  </script>
+</SoftwareLayout>

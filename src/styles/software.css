@@ -8,7 +8,8 @@
   --cyan: #00e5ff;
   --phosphor: #7dffb0;
   --line: #26262e;
-  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ui-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --mono: 'Courier New', Courier, ui-monospace, 'SFMono-Regular', Menlo, monospace;
   color-scheme: dark;
 }
@@ -39,6 +40,10 @@ a:hover {
 :focus-visible {
   outline: 2px solid var(--phosphor);
   outline-offset: 3px;
+}
+main.wide {
+  max-width: 1480px;
+  padding-top: 2rem;
 }
 main:focus {
   outline: none;
@@ -154,6 +159,14 @@ main {
   border-radius: 999px;
   color: var(--phosphor);
   font-size: 0.8rem;
+}
+
+a.status {
+  text-decoration: none;
+}
+a.status:hover {
+  color: #000;
+  background: var(--phosphor);
 }
 
 .notice {

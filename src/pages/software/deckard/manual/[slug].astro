@@ -1,0 +1,76 @@
+---
+import { render } from 'astro:content';
+import ManualLayout from '../../../../layouts/ManualLayout.astro';
+import { getManualChapters } from '../../../../lib/content';
+
+export async function getStaticPaths() {
+  const chapters = await getManualChapters();
+  return chapters.map((c, i) => ({
+    params: { slug: c.entry.id },
+    props: { index: i },
+  }));
+}
+
+const { index } = Astro.props;
+const chapters = await getManualChapters();
+const chapter = chapters[index];
+const { entry, number } = chapter;
+const { Content, headings } = await render(entry);
+const prev = chapters[index - 1];
+const next = chapters[index + 1];
+const nav = chapters.map((c) => ({ number: c.number, href: c.href, title: c.entry.data.title }));
+---
+<ManualLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  chapters={nav}
+  current={number}
+  headings={headings}
+>
+  <p class="crumbs">
+    <a href="/software/deckard">DECKARD</a>
+    <span aria-hidden="true">/</span>
+    <a href="/software/deckard/manual">Manual</a>
+  </p>
+  <h1><span class="num">{number}.</span> {entry.data.title}</h1>
+  <p class="lede">{entry.data.description}</p>
+
+  {entry.data.preview && (
+    <aside class="callout preview">
+      <p class="callout-title">Coming in the next release</p>
+      <p>{entry.data.preview}</p>
+    </aside>
+  )}
+
+  {entry.data.maschine && (
+    <aside class="callout maschine">
+      <p class="callout-title">In the Maschine manual</p>
+      <p>
+        This chapter covers only what DECKARD adds or does differently. For the rest, see{' '}
+        {entry.data.maschine.map((m, i) => (
+          <>
+            {i > 0 && (i === entry.data.maschine!.length - 1 ? ' and ' : ', ')}
+            <cite>{m}</cite>
+          </>
+        ))}.
+      </p>
+    </aside>
+  )}
+
+  <Content />
+
+  <nav class="pager" aria-label="Previous and next chapters">
+    {prev ? (
+      <a class="prev" href={prev.href} rel="prev">
+        <span class="dir">Previous</span>
+        <span class="t">{prev.number}. {prev.entry.data.title}</span>
+      </a>
+    ) : <span />}
+    {next && (
+      <a class="next" href={next.href} rel="next">
+        <span class="dir">Next</span>
+        <span class="t">{next.number}. {next.entry.data.title}</span>
+      </a>
+    )}
+  </nav>
+</ManualLayout>

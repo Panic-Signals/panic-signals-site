@@ -7,15 +7,21 @@ test('software list shows DECKARD', async ({ page }) => {
   await expect(card.locator('a[href="/software/deckard"]')).toBeVisible();
 });
 
+test('the status in the software list opens the manual', async ({ page }) => {
+  await page.goto('/software');
+  await page.locator('[data-project="deckard"] a.status').click();
+  await expect(page).toHaveURL(/\/software\/deckard\/manual\/?$/);
+});
+
 test('deckard page links to repo and releases', async ({ page }) => {
   await page.goto('/software/deckard');
   await expect(page.locator('main a[href="https://github.com/Panic-Signals/Deckard"]').first()).toBeVisible();
   await expect(page.locator('main a[href="https://github.com/Panic-Signals/Deckard/releases"]').first()).toBeVisible();
 });
 
-test('deckard page says manual coming soon', async ({ page }) => {
+test('deckard page links to the manual', async ({ page }) => {
   await page.goto('/software/deckard');
-  await expect(page.locator('main')).toContainText('Manual coming soon');
+  await expect(page.locator('main a[href="/software/deckard/manual"]').first()).toBeVisible();
 });
 
 test('software pages are not monospace, but the wordmark is', async ({ page }) => {
