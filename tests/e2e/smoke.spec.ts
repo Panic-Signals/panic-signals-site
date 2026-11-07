@@ -28,3 +28,11 @@ test('unknown pages show the NO SIGNAL 404', async ({ page }) => {
   await expect(page.locator('main')).toContainText('NO SIGNAL');
   await expect(page.locator('main a[href="/"]')).toBeVisible();
 });
+
+test('the site icons load', async ({ page, request }) => {
+  await page.goto('/');
+  for (const href of ['/favicon.ico', '/icon-192.png', '/apple-touch-icon.png']) {
+    await expect(page.locator(`head link[href="${href}"]`)).toHaveCount(1);
+    expect((await request.get(href)).ok()).toBe(true);
+  }
+});

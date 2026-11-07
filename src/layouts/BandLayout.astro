@@ -19,7 +19,9 @@ const fullTitle = title === 'PANIC SIGNALS' ? title : `${title} · PANIC SIGNALS
     <meta name="description" content={description} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <slot name="head" />
   </head>
