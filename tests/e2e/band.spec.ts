@@ -15,6 +15,13 @@ test('Transmissions and the footer link to Instagram', async ({ page }) => {
   await expect(page.locator(`footer ${instagram}`)).toHaveText('Instagram');
 });
 
+test('Transmissions and the footer link to YouTube', async ({ page }) => {
+  await page.goto('/');
+  const youtube = 'a[href="https://www.youtube.com/@PanicSignals"]';
+  await expect(page.locator(`[data-band-section] ${youtube}`)).toBeVisible();
+  await expect(page.locator(`footer ${youtube}`)).toHaveText('YouTube');
+});
+
 test('band pages use the monospace font', async ({ page }) => {
   await page.goto('/');
   const font = await page.evaluate(() => getComputedStyle(document.body).fontFamily);
