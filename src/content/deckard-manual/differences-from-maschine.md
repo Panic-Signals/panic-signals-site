@@ -25,6 +25,8 @@ written to behave like Maschine's. They're close, but not identical.
 
 ## What works differently
 
+<div class="split">
+
 | In Maschine | In DECKARD |
 | --- | --- |
 | **AUTO** on the MK3 writes automation while you hold it. | **AUTO** is a switch: press it once to start writing, again to stop. |
@@ -34,6 +36,8 @@ written to behave like Maschine's. They're close, but not identical.
 | A plug-in's extra outputs reach the mixer by routing them into other sounds' audio inputs. | Each extra output gets its own mixer strip. See [Multi-output plug-ins](/software/deckard/manual/multi-output-plug-ins). |
 | Plug-ins run on macOS and Windows. | Plug-ins run on macOS, Windows and Linux. DECKARD loads VST3 plug-ins, VST2 plug-ins that have a VST3 version, and Audio Units on macOS. On Linux, Windows plug-ins run through Wine and yabridge (**Preferences ▸ Plug-ins ▸ Windows plug-ins**). |
 | **Edit ▸ Undo** steps back one at a time. | **Edit ▸ Undo History** also jumps back up to 30 steps at once. |
+
+</div>
 
 ## Not there yet
 

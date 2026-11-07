@@ -260,6 +260,16 @@
   white-space: nowrap;
 }
 
+/* A comparison table: two even columns (wrap the Markdown table in <div class="split">). */
+.manual-body .split table {
+  table-layout: fixed;
+}
+.manual-body .split th,
+.manual-body .split td {
+  width: 50%;
+  white-space: normal;
+}
+
 /* Notes (> in Markdown) and the boxes at the top of a chapter */
 .manual-body blockquote,
 .callout {

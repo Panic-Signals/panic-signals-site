@@ -46,3 +46,12 @@ test('on a phone the chapter list folds into a menu', async ({ page }) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });
+
+test('the Maschine comparison table splits its columns evenly', async ({ page }) => {
+  await page.goto('/software/deckard/manual/differences-from-maschine');
+  const widths = await page
+    .locator('.split table tr:first-child th')
+    .evaluateAll((ths) => ths.map((th) => th.getBoundingClientRect().width));
+  expect(widths).toHaveLength(2);
+  expect(Math.abs(widths[0] - widths[1])).toBeLessThan(2);
+});

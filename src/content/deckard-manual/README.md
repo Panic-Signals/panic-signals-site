@@ -24,6 +24,9 @@ Write hardware buttons and keys as <kbd>SHIFT</kbd> + <kbd>SELECT</kbd>.
 > **Note:** a side remark.
 ```
 
+- For a table whose two columns are both sentences, such as a comparison, wrap it in
+  `<div class="split">`, with a blank line before and after the table, for two even columns.
+
 - Screenshots go in `public/manual/screenshots/`.
 - The controller diagrams in `public/manual/diagrams/` are drawn by
   `scripts/manual-diagrams.mjs`. Change that script and run
