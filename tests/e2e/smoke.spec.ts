@@ -46,3 +46,14 @@ test('the header shows the logo, linked home, with the glitch split', async ({ p
     expect(await logo.evaluate((el) => getComputedStyle(el).filter)).toContain('drop-shadow');
   }
 });
+
+test('the band header sits above the CRT overlay, so nothing dims the logo', async ({ page }) => {
+  await page.goto('/');
+  const logo = page.locator('header.site-header a.wordmark img');
+  const box = (await logo.boundingBox())!;
+  const top = await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.closest('header')?.className, [box.x + box.width / 2, box.y + box.height / 2]);
+  expect(top).toBe('site-header');
+  const z = await page.locator('header.site-header').evaluate((el) => Number(getComputedStyle(el).zIndex));
+  const overlay = await page.evaluate(() => Number(getComputedStyle(document.body, '::after').zIndex));
+  expect(z).toBeGreaterThan(overlay);
+});

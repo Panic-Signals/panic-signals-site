@@ -98,6 +98,9 @@ h3 {
 }
 
 .site-header {
+  /* Above the scan lines and vignette (z-index 50), so the logo and links aren't dimmed. */
+  position: relative;
+  z-index: 51;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
