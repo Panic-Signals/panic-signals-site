@@ -47,6 +47,12 @@ open-source code, so it sounds like the module.
 Plaits' code is © Emilie Gillet, used under the MIT licence, shown in DECKARD's About
 box.
 
+## Zhora
+
+DECKARD's third instrument, **Zhora**, doesn't make a sound of its own. It plays a
+modular synth over CV and keeps it in tune. It has its own chapter:
+[Controlling modular synths](/software/deckard/manual/modular-synths#zhora).
+
 ## In Maschine
 
 Replicant and Plaits are saved in the project like plug-ins. Maschine can't play them

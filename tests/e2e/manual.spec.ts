@@ -4,8 +4,9 @@ test('manual contents lists every chapter in order', async ({ page }) => {
   await page.goto('/software/deckard/manual');
   const items = page.locator('.contents li');
   await expect(items.first()).toContainText('Using this manual');
-  await expect(items).toHaveCount(10);
+  await expect(items).toHaveCount(11);
   await expect(items.nth(7)).toContainText('Multi-output plug-ins');
+  await expect(items.nth(9)).toContainText('Controlling modular synths');
 });
 
 test('a chapter marks itself in the sidebar and numbers its sections', async ({ page }) => {
@@ -24,7 +25,7 @@ test('chapters link to the previous and next chapter', async ({ page }) => {
 });
 
 test('diagrams and screenshots load', async ({ page }) => {
-  for (const path of ['/software/deckard/manual/maschine-mk3', '/software/deckard/manual/multi-output-plug-ins']) {
+  for (const path of ['/software/deckard/manual/maschine-mk3', '/software/deckard/manual/multi-output-plug-ins', '/software/deckard/manual/modular-synths']) {
     await page.goto(path);
     const imgs = page.locator('.manual-body figure img');
     const n = await imgs.count();

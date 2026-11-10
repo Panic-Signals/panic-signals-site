@@ -27,6 +27,7 @@ the controller. This manual doesn't repeat them. It covers:
 | A Launchpad Pro MK3 session grid, alongside the MK3 | [The Launchpad Pro MK3](/software/deckard/manual/launchpad-pro-mk3) |
 | A mixer strip for each extra output of a multi-output plug-in | [Multi-output plug-ins](/software/deckard/manual/multi-output-plug-ins) |
 | Two synths of its own, Replicant and Plaits | [DECKARD's own synths](/software/deckard/manual/synths) |
+| LFOs and envelopes as CV, Zhora to play and tune a modular voice, and a Tuner effect | [Controlling modular synths](/software/deckard/manual/modular-synths) |
 | Themes for the MK3's screens, and controller scripts you can change | [Themes and controller scripts](/software/deckard/manual/themes-and-scripts) |
 
 ## How this manual is written

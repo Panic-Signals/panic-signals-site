@@ -101,9 +101,15 @@ through get nothing. Audio exports don't send MIDI.
 On the MK3, turn a route's **Group** past the last group to **MIDI** on the mod matrix
 page.
 
+## Sending modulation out as CV
+
+With a DC-coupled audio interface, an LFO or envelope can also move a modular synth as
+control voltage, from the LFO panel's **CV** section. See
+[Controlling modular synths](/software/deckard/manual/modular-synths).
+
 ## Saving
 
 <aside class="callout warning" role="note">
   <p class="callout-title">Maschine deletes these if it saves the project</p>
-  <p>Routes, LFOs, envelopes and CC routes are saved in a part of the project only DECKARD reads. If you open the project in Maschine and save it there, they’re lost. See <a href="/software/deckard/manual/differences-from-maschine#files-and-maschine">Files and Maschine</a>.</p>
+  <p>Routes, LFOs, envelopes, CC routes and CV routes are saved in a part of the project only DECKARD reads. If you open the project in Maschine and save it there, they’re lost. See <a href="/software/deckard/manual/differences-from-maschine#files-and-maschine">Files and Maschine</a>.</p>
 </aside>
