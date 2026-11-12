@@ -136,6 +136,49 @@ playing pattern.
 These are the focused sound's settings. They decide whether pad pressure is recorded;
 see [Pad pressure on the MK3](/software/deckard/manual/expression#pad-pressure-on-the-mk3).
 
+## The Groove pages
+
+> **Note:** Only in the next release.
+
+A sound's **Groove** pages (Swing, Variation and Generate) work as the MK3 manual says,
+with these differences.
+
+- **The last Groove page you used comes back.** <kbd>VARIATION</kbd>, or choosing
+  **Groove** again, opens the page you left, for every sound. Switching sounds, or
+  between <kbd>PAD MODE</kbd> and <kbd>KEYBOARD</kbd>, keeps it.
+- **The right screen shows what Generate writes.** It follows the **Mode** knob.
+
+### Euclidean
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-euclidean.png" alt="The MK3's two screens on the Generate page in Euclidean mode. The right screen shows a circle of eight dots with 5 over 8 in the middle, cyan arcs on the five hits, an amber hand pointing at the third step, and ROTATE 0 below. The knobs read Mode Euclidean, Steps 8, Fills 5, Rotate 0, Division 1/16, Root Note C3 and Live Off." loading="lazy" />
+  <figcaption>Euclidean mode: five fills over eight steps, with the hand on the step playing.</figcaption>
+</figure>
+
+- **The circle** has a dot for each step, with the first step at the top. Each hit has
+  an arc along the rim as long as its step. The middle shows Fills over Steps.
+- **Rotate** turns the hits around the circle. The circle only changes when you turn
+  Steps, Fills or Rotate.
+- **The hand** shows where the pattern is playing, and the step under it lights.
+- **Knob 6, Root (Note),** sets the note Generate writes. It's the sound's **Base
+  Key**, the pitch its pad plays, so it's saved with the project and changes the pad
+  too. With **Live** on, the pattern is written again as you turn it. To make a
+  melody, generate the rhythm on one note, then move notes up and down in the
+  pattern.
+
+### Random
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-random.png" alt="The MK3's two screens on the Generate page in Random mode. The right screen shows a piano roll from C3 to C4 with ten cyan notes over a bar, an amber playhead with the note under it lit, 55 % · 10 notes at the top, and a small Velocity Natural curve in the corner. The knobs read Mode Random, Probability 55 %, Velocity 10 %, Note Lo C3, Note Hi C4, Note Count 1 and Distribution Natural." loading="lazy" />
+  <figcaption>Random mode: the generated notes over the note range, with the playhead.</figcaption>
+</figure>
+
+- **The roll** shows the focused pattern's notes over the **Note Lo** to **Note Hi**
+  range, with a line on each beat and bar. Louder notes are brighter.
+- **The playhead** moves with the song, and the notes under it light.
+- **The top line** shows Probability and how many notes there are. The corner shows
+  the Velocity distribution's curve.
+
 ## Macros
 
 <kbd>SHIFT</kbd> + <kbd>MACRO</kbd> opens Set Macro, as in Maschine: touch a knob to
