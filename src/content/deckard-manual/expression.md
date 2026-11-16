@@ -1,20 +1,20 @@
 ---
 title: Expressive recording
-order: 7
+order: 8
 description: Record MPE, polyphonic aftertouch and MK3 pad pressure as curves on each note, edit them, and play them back.
 maschine: ['“Working with Patterns and Clips” (recording) in the Maschine 3 Software Manual']
 ---
 
 Maschine records a note's pitch, velocity and length. DECKARD can also record how you
 played it after it started, as curves on the note itself, in the way Ableton Live's
-Note Expression does. Each note can carry up to four:
+Note Expression does. Each note can carry up to four kinds:
 
-| Curve | What it records |
+| Kind | What it records |
 | --- | --- |
 | **Pressure** | How hard you press while the note is held. |
 | **Slide** | A finger's up-and-down movement on an MPE key (MIDI CC 74). |
 | **Pitch** | A bend of that one note. |
-| **Release** | How fast the key was let go. |
+| **Release** | How fast the key was let go: one value per note, not a curve. |
 
 Recording works as in Maschine: arm with <kbd>REC</kbd> and press <kbd>PLAY</kbd>
 (<kbd>SHIFT</kbd> + <kbd>REC</kbd> adds a count-in). Pads, MIDI keyboards and the
@@ -65,9 +65,10 @@ pressure modes, pads play at a fixed velocity.
   <figcaption>A Pressure curve over each note, in the lane under the pattern.</figcaption>
 </figure>
 
-Once a sound's notes have expression, the lane list under the pattern offers
-**Pitch**, **Slide**, **Pressure** and **Release**. A small dot marks a note with
-expression. In a lane:
+Once a sound's notes have expression, the lane list under the pattern offers a lane
+for each kind they have: **Pitch**, **Slide**, **Pressure** and **Release**. A small
+dot marks a note with expression. The **Release** lane has a bar per note that you
+drag up or down, like Velocity. In the other three lanes:
 
 - **click** to add a point, and **drag** a point or a segment to move it;
 - <kbd>⌥</kbd>-**drag** a segment to bend it into a curve;

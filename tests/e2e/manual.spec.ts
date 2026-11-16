@@ -4,17 +4,17 @@ test('manual contents lists every chapter in order', async ({ page }) => {
   await page.goto('/software/deckard/manual');
   const items = page.locator('.contents li');
   await expect(items.first()).toContainText('Using this manual');
-  await expect(items).toHaveCount(11);
-  await expect(items.nth(7)).toContainText('Multi-output plug-ins');
-  await expect(items.nth(9)).toContainText('Controlling modular synths');
+  await expect(items).toHaveCount(12);
+  await expect(items.nth(8)).toContainText('Multi-output plug-ins');
+  await expect(items.nth(10)).toContainText('Controlling modular synths');
 });
 
 test('a chapter marks itself in the sidebar and numbers its sections', async ({ page }) => {
   await page.goto('/software/deckard/manual/modulation');
-  await expect(page.locator('h1')).toContainText('6.');
+  await expect(page.locator('h1')).toContainText('7.');
   await expect(page.locator('.manual-nav a[aria-current="page"]')).toContainText('Modulation');
-  await expect(page.locator('.manual-body')).toHaveAttribute('style', /counter-reset: chapter 6/);
-  await expect(page.locator('.manual-toc')).toContainText('6.1');
+  await expect(page.locator('.manual-body')).toHaveAttribute('style', /counter-reset: chapter 7/);
+  await expect(page.locator('.manual-toc')).toContainText('7.1');
 });
 
 test('chapters link to the previous and next chapter', async ({ page }) => {

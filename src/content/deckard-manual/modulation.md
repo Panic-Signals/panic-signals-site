@@ -1,6 +1,6 @@
 ---
 title: Modulation
-order: 6
+order: 7
 description: The mod matrix, up to 16 LFOs and envelopes per project, and sending them to external gear as MIDI CC.
 maschine: ['“Working with Patterns and Clips” (automation) in the Maschine 3 Software Manual']
 ---
@@ -26,6 +26,7 @@ A **route** connects one source to one knob.
 | **Target** | Any continuous knob in a sound's chain: the Sampler, a drum synth, a built-in effect, Replicant, Plaits, or a hosted plug-in's parameter. |
 | **Low** and **High** | The range the knob sweeps as the source moves from its lowest to its highest. Set Low above High to turn the movement upside down. |
 | **Curve** | Bends the response, so more of the movement happens near the bottom or the top. |
+| **Mode** | **Range** sweeps the knob between Low and High. **Add** adds the source's movement to the knob's own value, and several Add routes on one knob add up. |
 
 While a route drives a knob, the knob moves on screen and on the MK3 so you can see
 it. Turning the knob yourself still sets its own value, from where it was set rather
@@ -36,7 +37,8 @@ than from where the route has moved it.
 1. Select a sound, and a module in its chain, in the Control area.
 2. Open the Assignment area with the small arrow under the Control area's icons, and
    choose its **MOD** tab.
-3. Click **Assign** under a knob, then choose a source and set Low, High and Curve.
+3. Click **Assign** under a knob, then choose a source and set Mode, Low, High and
+   Curve. A **Pitch** route also has a **Range**, from 1 to 48 semitones.
 
 **ROUTES**, at the right of the MOD tab, lists all of the sound's routes in one place.
 On the MK3, <kbd>SHIFT</kbd> + <kbd>SOLO</kbd> lists every route in the project: see
@@ -53,25 +55,28 @@ On the MK3, <kbd>SHIFT</kbd> + <kbd>SOLO</kbd> lists every route in the project:
 </figure>
 
 Open the LFO panel with the circle-and-sine button in the header. A project has up to
-16 LFOs, one per pad, shared by all its sounds. On the MK3 they're on
+16 LFOs, one per pad, shared by all its sounds. **+ Add LFO** makes one, and
+right-clicking an LFO's name removes it. On the MK3 they're on
 [the LFO page](/software/deckard/manual/maschine-mk3#the-lfo-page).
 
 ### LFO mode
 
 | Setting | What it does |
 | --- | --- |
-| **Shape** | Sine, Square, Triangle, Saw or Random. |
+| **Shape** | Sine, Square, Triangle, Saw, Random or Wander. Wander drifts smoothly and never repeats. |
 | **Sync** and **Rate** | Synced: a note length, following the tempo. Free: a rate in Hz. |
 | **Phase** | Where in its cycle the LFO starts. |
 | **Level** | How far it moves. |
+| **Offset** | Shifts the whole wave up or down. |
+| **Jitter** | Mixes noise into the wave. |
 | **Quantize** | Steps the wave into stairs. |
 | **Trigger** | A sound whose notes restart the LFO. Off: it runs freely. |
-| **Fade in** | Time for the LFO to reach full level after it restarts. |
+| **Fade in** | Time for the LFO to reach full level after it restarts. Shown once a Trigger is set. |
 | **M** | Mutes it. A muted LFO moves nothing. |
 
 ### Envelope mode
 
-Switch an LFO to Envelope mode and it becomes an ADSR envelope, shown as **ENV n**.
+Switch an LFO's **Mode** to Envelope and it becomes an ADSR envelope, shown as **ENV n**.
 The notes of its **Trigger** sound play it, from patterns and live.
 
 - **Attack**, **Decay** and **Release** each run from 1 ms to 10 s. **Sustain** is the

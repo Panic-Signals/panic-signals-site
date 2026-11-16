@@ -1,8 +1,7 @@
 ---
 title: Controlling modular synths
-order: 10
+order: 11
 description: Send LFOs and envelopes to a modular synth as control voltage, play a voice with Zhora and keep it in tune, and tune anything else with the Tuner.
-preview: CV outputs, Zhora and the Tuner are finished but not in a DECKARD release yet. They'll arrive in the next one. Until then this chapter describes what's coming.
 ---
 
 With an audio interface that can send DC, DECKARD can drive a modular synth directly.
@@ -96,8 +95,9 @@ channel with no route on it sits at 0 V.
 
 Zhora is an instrument that plays one voice of a modular synth. It sends pitch, gate
 and other signals to CV only outputs, listens to the voice come back on an input, and
-tunes its pitch output so the voice plays in tune. Add it from the **+** at the end of
-a sound's chain: **Internal ▸ Zhora**.
+tunes its pitch output so the voice plays in tune. Add it from the **+** of
+an empty sound: **Internal ▸ Zhora**. On a sound that already has an instrument,
+right-click the instrument and choose **Change Instrument ▸ Internal ▸ Zhora**.
 
 <figure class="screenshot">
   <img src="/manual/screenshots/zhora.png" alt="Zhora in the Control area on its OUTS page: Pitch, Gate, Clock and Env go to the outputs named Pitch, Gate, Clock and Env; Input is Modular; Hold Note A3; Live Off; Glide Off. At the right are the TUNE, CHECK, LIVE and HOLD buttons (HOLD lit), and a tuner reading A2, +3 cents in green, over the line 'Tuned today 14:59 · worst note 0¢ · D#0–A5 · Holding A3'." loading="lazy" />
@@ -163,11 +163,12 @@ up. Zhora measures the oscillator and makes a table that puts every note in tune
    voice, and open its filter, so a clear pitch comes back.
 2. Press **TUNE**.
 3. Zhora steps the pitch output through the range for a few seconds, listening to each
-   step. It then builds a table that puts every note in the range it found within 5
-   cents.
+   step. It then builds a table that aims to put every note in the range it found
+   within 5 cents.
 
 The line under the tuner shows the result, such as "Tuned today 14:59 · worst note
-3¢ · C1–C7": when it was tuned, the worst note's error, and the range. A note outside
+3¢ · C1–C7": when it was tuned, the worst note's error, and the range. Notes it
+couldn't bring within 5 cents are listed after "off:". A note outside
 that range plays the nearest note inside it, and the screen says **Out of range**.
 
 - **The table is saved with the project.** Tuning is its own undo step.
