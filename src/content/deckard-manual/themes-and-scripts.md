@@ -21,6 +21,9 @@ Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes w
   pads and group buttons light in that colour too. **LCD colour**, under the theme,
   chooses **Yellow / black**, **Red / black** or **Blue / white**.
 
+> **Note:** Only in the next release: Palenight Blue Green, and Palenight's black
+> background. Until then, Palenight is the deep blue-grey one.
+
 <figure class="screenshot">
   <img src="/manual/screenshots/theme-maschine-lfo.png" alt="The LFO page on the MK3's screens in the Maschine theme." loading="lazy" />
   <figcaption>The LFO page in the Maschine theme…</figcaption>

@@ -41,6 +41,7 @@ written to behave like Maschine's. They're close, but not identical.
 
 ## Ratchets
 
+
 A ratchet makes one note play several times inside its own length. Maschine has no
 ratchets; in DECKARD every note can have one.
 
@@ -84,7 +85,7 @@ stem in the **Velocity** lane.
 
 On the MK3, ratchets are on the [Step and Events pages](/software/deckard/manual/maschine-mk3#ratchets-on-the-step-and-events-pages).
 
-## Moving an audio loop
+
 
 In Maschine, an audio loop always starts on the pattern's first beat. In DECKARD you
 can slide it.
@@ -109,6 +110,8 @@ Three panels in the **View** menu do in the window what otherwise needs hardware
 - **View ▸ MIDI Monitor** lists what comes in on each MIDI input, the MK3's pads
   included, and what DECKARD sends to each output. It helps when setting up MPE
   keyboards and MIDI CC routes.
+
+=======
 
 ## Not there yet
 
