@@ -1,6 +1,6 @@
 ---
 title: DECKARD's own synths
-order: 9
+order: 10
 description: Replicant, a classic subtractive synth with a supersaw, and Plaits, Mutable Instruments' macro-oscillator.
 ---
 
@@ -22,8 +22,8 @@ Replicant is a classic subtractive synth. Its pages are **Oscillators**, **Filte
 | --- | --- |
 | **Oscillators** | Two oscillators (saw, pulse, triangle or sine), a sub oscillator and noise. |
 | **Filter** | A resonant low-pass, band-pass or high-pass filter, with its own envelope. |
-| **Amp** | The amp envelope. 16 voices, or Mono with glide. Stereo spread and analog-style drift. |
-| **Modulation** | An LFO to pitch and cutoff, and vibrato on the mod wheel. |
+| **Amp** | The amp envelope, velocity, key tracking, glide and volume. |
+| **Modulation** | An LFO to pitch and cutoff, and vibrato on the mod wheel. 16 voices or Mono, stereo spread, analog-style drift and the bend range. |
 | **Super** | Turns oscillator 1 into a JP-8000-style supersaw: up to seven detuned copies, their detune and their mix. |
 
 ## Plaits
@@ -55,6 +55,6 @@ modular synth over CV and keeps it in tune. It has its own chapter:
 
 ## In Maschine
 
-Replicant and Plaits are saved in the project like plug-ins. Maschine can't play them
+Replicant, Plaits, Zhora and the Tuner are saved in the project like plug-ins. Maschine can't play them
 and reports them as missing plug-ins, but keeps their settings when it saves the
 project, so they come back when you open it in DECKARD again.

@@ -1,7 +1,7 @@
 ---
 title: Themes and controller scripts
-order: 11
-description: Restyle the MK3's screens with a theme, and change what any button or page does with DECKARD's controller scripts.
+order: 12
+description: Restyle the MK3's screens and DECKARD's window with a theme, and change what any button or page does with DECKARD's controller scripts.
 ---
 
 ## Themes for the MK3's screens
@@ -10,16 +10,16 @@ DECKARD draws the MK3's screens itself, so they can be restyled: colours, fonts 
 text sizes, plus an optional animated border on the chosen button. Every page uses the
 theme, so one file changes them all.
 
-Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes with four:
+Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes with five:
 
 - **Maschine:** the look of Maschine's own screens.
 - **Palenight:** lavender text and purple and cyan accents on black, so the screens
   blend into the MK3's bezel. A new install starts with it.
 - **Palenight Blue Green:** the same colours on a deep blue-grey background.
 - **Solarized Dark.**
-
-> **Note:** Only in the next release: Palenight Blue Green, and Palenight's black
-> background. Until then, Palenight is the deep blue-grey one.
+- **LCD:** one colour on a dark background, like the display of an old sampler. The
+  pads and group buttons light in that colour too. **LCD colour**, under the theme,
+  chooses **Yellow / black**, **Red / black** or **Blue / white**.
 
 <figure class="screenshot">
   <img src="/manual/screenshots/theme-maschine-lfo.png" alt="The LFO page on the MK3's screens in the Maschine theme." loading="lazy" />
@@ -38,7 +38,16 @@ DECKARD reloads it each time you save, so you can tweak it with the MK3 in front
 you. [THEMING.md](https://github.com/Panic-Signals/Deckard/blob/main/THEMING.md) in
 DECKARD's repository shows how, step by step.
 
-DECKARD's own window can't be themed yet.
+## Themes for DECKARD's window
+
+**Preferences ▸ Hardware ▸ Desktop theme** restyles DECKARD's own window with any of
+the five themes. It is separate from the controller's theme, so the window and the
+MK3 can each have their own.
+
+- A theme changes the window's backgrounds, lines and text, in every view.
+- Groups, sounds, patterns and scenes keep the colours you gave them, in every theme.
+- **Maschine** is the ordinary dark window.
+- A theme you made yourself restyles the MK3's screens, but not the window yet.
 
 ## Controller scripts
 

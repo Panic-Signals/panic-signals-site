@@ -1,22 +1,26 @@
 ---
 title: Getting started
 order: 2
-description: Install DECKARD, open your Maschine projects, and connect an MK3 or a Launchpad Pro.
+description: Install DECKARD, open your Maschine projects, and connect an MK3, a Maschine JAM or a Launchpad Pro.
 ---
 
 ## What you need
 
 - **A computer** running macOS, Linux or Windows.
 - **Speakers or headphones.** DECKARD plays through your system's audio output.
-  Choose the device in **Preferences ▸ Audio**.
+  Choose the device in **Preferences ▸ Audio**. On Windows, **Driver** there chooses
+  between **WASAPI** and your audio interface's **ASIO** driver, for lower latency.
 - **Optional: a Maschine MK3**, or a Maschine+ in controller mode. DECKARD drives its
   pads, buttons, knobs, lights and both screens itself, so Maschine doesn't need to be
   installed.
+- **Optional: a Maschine JAM**, with or without an MK3.
 - **Optional: a Novation Launchpad Pro MK3**, connected over USB.
 - **Optional: Maschine's libraries.** Maschine projects use samples, kits and
   expansions from NI's libraries. DECKARD finds the ones you have installed, but
   doesn't come with any. Without them you can still use your own samples and
-  DECKARD's built-in instruments.
+  DECKARD's built-in instruments. To browse sound packs you keep elsewhere, add their
+  folders in **Preferences ▸ Library**: each is listed in the browser under Factory,
+  named after its folder.
 
 ## Installing
 
@@ -57,8 +61,10 @@ Projects saved by DECKARD open in Maschine 3, and Maschine projects open in DECK
   <p class="callout-title">Saving in Maschine deletes DECKARD’s extras</p>
   <p>DECKARD opens Maschine projects and saves them in Maschine’s format, so the same file opens in both programs. But if you open a project in Maschine and <strong>save it there</strong>, Maschine deletes everything only DECKARD has:</p>
   <ul>
-    <li>LFOs and envelopes, and the mod-matrix and MIDI CC routes they drive;</li>
+    <li>LFOs and envelopes, and the mod-matrix, MIDI CC and CV routes they drive;</li>
     <li>note expression: polyphonic aftertouch, MPE pressure, slide and pitch, and release velocity;</li>
+    <li>ratchets: each note plays once again;</li>
+    <li>each sound’s Pad Touch settings;</li>
     <li>the mixer strips of multi-output plug-ins.</li>
   </ul>
   <p>Your notes, patterns, sounds and settings that Maschine has too are kept. Replicant and Plaits keep their settings, but Maschine can’t play them.</p>
@@ -79,11 +85,43 @@ Projects saved by DECKARD open in Maschine 3, and Maschine projects open in DECK
 The MK3 then works as described in the Maschine MK3 manual, with the changes in
 [The Maschine MK3](/software/deckard/manual/maschine-mk3).
 
+## Connecting a Maschine JAM
+
+Plug it in, with Maschine closed. The status bar says "Maschine JAM connected". On
+Windows, DECKARD offers to stop NI's services first, because they fight it over the
+JAM's lights. See [The Maschine JAM](/software/deckard/manual/maschine-jam).
+
 ## Connecting a Launchpad Pro MK3
 
 Plug it in over USB. DECKARD switches it to DAW mode and the status bar says
 "Launchpad Pro [MK3] connected". When DECKARD quits, the Launchpad goes back to
 standalone. See [The Launchpad Pro MK3](/software/deckard/manual/launchpad-pro-mk3).
+
+## Windows plug-ins on Linux
+
+Many plug-ins, NI's among them, have no Linux versions. On Linux, DECKARD runs their
+Windows versions through [Wine](https://www.winehq.org) and
+[yabridge](https://github.com/robbert-vdh/yabridge). **Preferences ▸ Plug-ins:
+Manager ▸ Windows plug-ins** shows what you have and installs what you don't.
+
+1. **Install Wine:** press **Install Wine…**. It uses your distribution's packages
+   (Debian, Ubuntu, Mint, Fedora or Arch) and asks for an administrator's password.
+2. **Install yabridge:** press **Install yabridge**. It goes into your home folder.
+3. **Install your plug-ins into Wine**, by running their Windows installers with
+   `wine`. NI's plug-ins install through Native Access, run the same way.
+4. **Press Sync now**, then rescan. The plug-ins appear in DECKARD's list like any
+   others. With **Sync before each rescan** on, as it is to start with, a rescan
+   alone does both.
+
+- **Plug-in windows are X11 windows.** On a Wayland desktop they run through
+  XWayland.
+- **If a plug-in's window takes no clicks or typing,** your Wine is 9.22 or later and
+  yabridge's last release doesn't work with it. Preferences says so beside the Wine
+  version. Press **Install build tools…**, then **Build yabridge**, which takes a few
+  minutes.
+- **If a plug-in doesn't show up,**
+  [Windows plug-ins on Linux: troubleshooting](https://github.com/Panic-Signals/Deckard/blob/main/docs/windows-plugins-troubleshooting.md)
+  goes through each step.
 
 ## Sync with other apps
 

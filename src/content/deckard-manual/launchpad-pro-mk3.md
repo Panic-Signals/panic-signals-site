@@ -42,13 +42,14 @@ The arrows light when there's somewhere to scroll to.
 
 ### The grid
 
-- **Each column is a group**, the eight around the focused one, with its patterns down
+- **Each column is a group**, the eight the focused group is among (1–8, 9–16…), with its patterns down
   the top seven rows in the colours you gave them.
 - **A bright pad** is a pattern the focused scene plays. **A dim pad** is a pattern it
   doesn't.
 - **Press a pad** to put its pattern in the focused scene, or take it out. A group
   plays one pattern per scene, so the one it played goes out. The focus on the MK3
-  doesn't move, so you can change one part here while you play another there.
+  doesn't move to another group, so you can change one part here while you play
+  another there. In the focused group, the pattern you press becomes the focused one.
 - **The faint pad** after a group's last pattern makes a new pattern, already in the
   scene.
 - **The bottom row is a playhead.** While playing, it spreads the scene's longest
