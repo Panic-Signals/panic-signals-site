@@ -1,6 +1,6 @@
 ---
 title: Themes and controller scripts
-order: 11
+order: 12
 description: Restyle the MK3's screens and DECKARD's window with a theme, and change what any button or page does with DECKARD's controller scripts.
 ---
 

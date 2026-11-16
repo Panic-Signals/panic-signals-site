@@ -12,7 +12,7 @@ Because DECKARD follows Maschine so closely, NI's own manuals still describe mos
 it: the *Maschine 3 Software Manual* for the program and the *Maschine MK3 Manual* for
 the controller. This manual doesn't repeat them. It covers:
 
-- **Setting DECKARD up**: installing it, and taking over an MK3 or a Launchpad Pro.
+- **Setting DECKARD up**: installing it, and taking over an MK3, a Maschine JAM or a Launchpad Pro.
 - **What's different**: where DECKARD behaves differently from Maschine, and what it
   doesn't do yet.
 - **What's new**: the things Maschine doesn't have.
@@ -24,6 +24,7 @@ the controller. This manual doesn't repeat them. It covers:
 | A mod matrix, with up to 16 LFOs and envelopes per project | [Modulation](/software/deckard/manual/modulation) |
 | Expressive recording: MPE, polyphonic aftertouch and pad pressure as curves on each note | [Expressive recording](/software/deckard/manual/expression) |
 | New MK3 pages: LFOs, the mod matrix, a step grid | [The Maschine MK3](/software/deckard/manual/maschine-mk3) |
+| A Maschine JAM driven by DECKARD itself | [The Maschine JAM](/software/deckard/manual/maschine-jam) |
 | A Launchpad Pro MK3 session grid, alongside the MK3 | [The Launchpad Pro MK3](/software/deckard/manual/launchpad-pro-mk3) |
 | A mixer strip for each extra output of a multi-output plug-in | [Multi-output plug-ins](/software/deckard/manual/multi-output-plug-ins) |
 | Ratchets: a note that plays several times inside its own length | [Differences from Maschine](/software/deckard/manual/differences-from-maschine#ratchets) |

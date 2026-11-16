@@ -84,6 +84,32 @@ stem in the **Velocity** lane.
 
 On the MK3, ratchets are on the [Step and Events pages](/software/deckard/manual/maschine-mk3#ratchets-on-the-step-and-events-pages).
 
+## Moving an audio loop
+
+In Maschine, an audio loop always starts on the pattern's first beat. In DECKARD you
+can slide it.
+
+- **Drag the loop's waveform** in the pattern editor: its sound's row in the drum
+  grid, or anywhere without a note in the piano roll. The waveform follows the
+  pointer and its new place shows as bars, beats and sixteenths.
+- It snaps to the grid. Hold <kbd>SHIFT</kbd> to move it freely.
+- Each pattern places the same loop on its own.
+- A recording from an external input isn't corrected for latency: drag a late take
+  into place this way.
+
+Maschine plays the loop from the first beat again.
+
+## Without a controller
+
+Three panels in the **View** menu do in the window what otherwise needs hardware:
+
+- **View ▸ Note Repeat / Arp** switches Note Repeat and the Arpeggiator on and sets
+  them. They work on the computer keyboard's notes (<kbd>⌘K</kbd>) as well as on pads.
+- **View ▸ Lock** takes, recalls and morphs Lock snapshots.
+- **View ▸ MIDI Monitor** lists what comes in on each MIDI input, the MK3's pads
+  included, and what DECKARD sends to each output. It helps when setting up MPE
+  keyboards and MIDI CC routes.
+
 ## Not there yet
 
 These parts of Maschine aren't in DECKARD yet:
@@ -93,8 +119,8 @@ These parts of Maschine aren't in DECKARD yet:
 - Some context-menu items: Clear and Color on scenes, and Rename, Clear and Color on
   sections.
 - Editing a clip's notes, and the MK3's clip pages.
-- **MIDI mode** (the MK3 as a plain MIDI controller), the footswitch input and the NKS
-  light guide.
+- **MIDI mode** (the MK3 as a plain MIDI controller), the MK3's footswitch input and the
+  NKS light guide.
 - Running DECKARD as a plug-in inside a DAW.
 
 ## Files and Maschine
@@ -116,6 +142,7 @@ These parts of Maschine aren't in DECKARD yet:
     <li>LFOs and envelopes, and the mod-matrix, MIDI CC and CV routes they drive;</li>
     <li>note expression: polyphonic aftertouch, MPE pressure, slide and pitch, and release velocity;</li>
     <li>ratchets: each note plays once again;</li>
+    <li>where you moved an audio loop to: it starts on the first beat again;</li>
     <li>each sound’s Pad Touch settings;</li>
     <li>the mixer strips of multi-output plug-ins.</li>
   </ul>

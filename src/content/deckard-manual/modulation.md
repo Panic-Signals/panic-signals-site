@@ -1,6 +1,6 @@
 ---
 title: Modulation
-order: 6
+order: 7
 description: The mod matrix, up to 16 LFOs and envelopes per project, and sending them to external gear as MIDI CC.
 maschine: ['“Working with Patterns and Clips” (automation) in the Maschine 3 Software Manual']
 ---

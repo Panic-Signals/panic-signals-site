@@ -1,6 +1,6 @@
 ---
 title: DECKARD's own synths
-order: 9
+order: 10
 description: Replicant, a classic subtractive synth with a supersaw, and Plaits, Mutable Instruments' macro-oscillator.
 ---
 

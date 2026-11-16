@@ -1,6 +1,6 @@
 ---
 title: Controlling modular synths
-order: 10
+order: 11
 description: Send LFOs and envelopes to a modular synth as control voltage, play a voice with Zhora and keep it in tune, and tune anything else with the Tuner.
 ---
 

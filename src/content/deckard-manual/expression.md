@@ -1,6 +1,6 @@
 ---
 title: Expressive recording
-order: 7
+order: 8
 description: Record MPE, polyphonic aftertouch and MK3 pad pressure as curves on each note, edit them, and play them back.
 maschine: ['“Working with Patterns and Clips” (recording) in the Maschine 3 Software Manual']
 ---

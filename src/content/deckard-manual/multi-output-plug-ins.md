@@ -1,6 +1,6 @@
 ---
 title: Multi-output plug-ins
-order: 8
+order: 9
 description: Give each extra output of Kontakt, a drum sampler or any multi-output plug-in its own mixer strip, output and stem.
 maschine: ['“Controlling your mix” in the Maschine 3 Software Manual']
 ---

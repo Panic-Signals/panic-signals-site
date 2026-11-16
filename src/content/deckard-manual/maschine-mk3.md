@@ -8,6 +8,24 @@ maschine: ['the Maschine MK3 Manual']
 DECKARD runs the MK3 with its own controller layer. Almost every button does what the
 MK3 manual says. This chapter covers the exceptions.
 
+## Which layer runs the MK3
+
+DECKARD can run the MK3 in two ways. **Preferences ▸ Hardware ▸ Controller** chooses:
+
+- **DECKARD** is DECKARD's own controller layer, and what a new install uses.
+  Everything in this chapter, and the
+  [themes and scripts](/software/deckard/manual/themes-and-scripts), belong to it.
+- **Maschine scripts** runs the MK3 from the controller scripts of your own Maschine
+  installation. The MK3 then behaves as in Maschine: the pages this chapter adds
+  aren't there, <kbd>AUTO</kbd> writes only while held, and themes don't apply.
+- **Automatic** uses Maschine's scripts when Maschine is installed, and DECKARD's
+  layer when it isn't.
+
+With Maschine's scripts running, **Controller ▸ Show Controller** (or the four-squares
+button in the header) shows a controller on screen that you can click, so those pages
+work without the hardware. **Controller ▸ Controller Model** chooses which controller
+it is.
+
 ## At a glance
 
 <figure>
