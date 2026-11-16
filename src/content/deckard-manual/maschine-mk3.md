@@ -179,6 +179,34 @@ with these differences.
 - **The top line** shows Probability and how many notes there are. The corner shows
   the Velocity distribution's curve.
 
+## Ratchets on the Step and Events pages
+
+> **Note:** Only in the next release.
+
+<kbd>STEP</kbd> and <kbd>EVENTS</kbd> have a second knob page for the selected notes.
+Press <kbd>▶</kbd> to open it and <kbd>◀</kbd> to go back.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-ratchet.png" alt="The MK3's two screens on the Step page's second knob page. The selected note on the left screen, and again larger on the right, is split by three thin lines into four hits. The knobs read Probability 100 %, Ratchet 4, Shape Down and Floor 20." loading="lazy" />
+  <figcaption>The Step page's second knob page, with a four-hit ratchet selected.</figcaption>
+</figure>
+
+| Knob | Sets |
+| --- | --- |
+| 1 **Probability** | The notes' chance of playing, as before. |
+| 2 **Ratchet** | How many times each note plays inside its length, 1 to 16. |
+| 3 **Shape** | **Flat**, **Down** or **Up**. |
+| 4 **Floor** / **Ceiling** | Where the velocity is heading: **Floor** for falling notes, **Ceiling** for rising ones. |
+
+- Knob 4 is named after the notes you've selected. With falling and rising notes
+  selected together it reads **Target**, and moves each note's own Floor or Ceiling.
+- Both screens draw a thin line across a note for each hit after the first.
+- The step grid (<kbd>SHIFT</kbd> + <kbd>STEP</kbd>) has no second knob page, so set
+  ratchets from <kbd>STEP</kbd> or <kbd>EVENTS</kbd>.
+
+[Ratchets](/software/deckard/manual/differences-from-maschine#ratchets) explains what
+each setting does.
+
 ## Macros
 
 <kbd>SHIFT</kbd> + <kbd>MACRO</kbd> opens Set Macro, as in Maschine: touch a knob to

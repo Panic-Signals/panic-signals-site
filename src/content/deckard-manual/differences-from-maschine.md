@@ -39,6 +39,53 @@ written to behave like Maschine's. They're close, but not identical.
 
 </div>
 
+## Ratchets
+
+> **Note:** Only in the next release.
+
+A ratchet makes one note play several times inside its own length. Maschine has no
+ratchets; in DECKARD every note can have one.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/ratchet-velocity.png" alt="The pattern editor with three notes on sound 1 and the Velocity lane under them. The first note is split by three thin lines into four hits, and its velocity stems step down from left to right. The second note is plain and has one stem. The third note is split into eight hits, and its stems step up." loading="lazy" />
+  <figcaption>A four-hit ratchet falling, a plain note, and an eight-hit ratchet rising.</figcaption>
+</figure>
+
+- **Repeats** is how many times the note plays, from 1 (a plain note) to 16. The hits
+  share the note's length evenly, so a longer note gives slower hits. Drag the note's
+  end and the hits spread out or close up with it.
+- **Shape** sets the hits' velocities:
+  - **Flat:** every hit plays at the note's velocity.
+  - **Down:** the first hit plays at the note's velocity, and each one after it is
+    quieter, heading for the **Floor**.
+  - **Up:** the first hit plays at the note's velocity, and each one after it is
+    louder. The last hit plays at the **Ceiling**.
+- **Floor** (0 to start with) and **Ceiling** (127 to start with) are where a falling
+  or rising ratchet is heading. A Floor above the note's velocity, or a Ceiling below
+  it, changes nothing.
+
+To give a note a ratchet:
+
+1. Select one or more notes in the pattern editor or piano roll.
+2. Right-click one and open **Ratchet**.
+3. Drag **Repeats**, or double-click it and type a number, and choose **Flat**,
+   **Down** or **Up**. **Floor** and **Ceiling** are below.
+
+You can also choose **Ratchet** in the list of lanes under the notes (with
+**Velocity** and **Probability**) and drag a note's bar up or down to set its
+Repeats.
+
+Each hit after the first is drawn as a thin line across the note, and as a fainter
+stem in the **Velocity** lane.
+
+- **Probability** is rolled once for the whole note: all its hits play, or none do.
+- Hits that would start after the pattern's end don't play.
+- A note's pitch, slide and pressure curves carry on through the hits. They don't
+  start again on each one.
+- **Export MIDI** writes each hit as its own note.
+
+On the MK3, ratchets are on the [Step and Events pages](/software/deckard/manual/maschine-mk3#ratchets-on-the-step-and-events-pages).
+
 ## Not there yet
 
 These parts of Maschine aren't in DECKARD yet:
@@ -58,7 +105,8 @@ These parts of Maschine aren't in DECKARD yet:
   it saves open in Maschine 3, and files it doesn't change are written back byte for
   byte.
 - **What DECKARD adds is saved in an extra block** inside the `.mxprj`: note
-  expression, LFOs and envelopes, mod-matrix routes, CC routes and extra-output strips.
+  expression, ratchets, LFOs and envelopes, mod-matrix routes, CC routes and
+  extra-output strips.
   Maschine skips the block, so the project still opens there.
 - **Replicant and Plaits** are saved like plug-ins. Maschine reports them as missing
   plug-ins and can't play them, but keeps their settings when it saves.
@@ -69,6 +117,7 @@ These parts of Maschine aren't in DECKARD yet:
   <ul>
     <li>LFOs and envelopes, and the mod-matrix and MIDI CC routes they drive;</li>
     <li>note expression: polyphonic aftertouch, MPE pressure, slide and pitch, and release velocity;</li>
+    <li>ratchets: each note plays once again;</li>
     <li>the mixer strips of multi-output plug-ins.</li>
   </ul>
   <p>Your notes, patterns, sounds and settings that Maschine has too are kept. Replicant and Plaits keep their settings, but Maschine can’t play them.</p>
