@@ -100,6 +100,17 @@ can slide it.
 
 Maschine plays the loop from the first beat again.
 
+## Pasting notes at the playhead
+
+While the song is stopped, click the ruler above the pattern to put the playhead there.
+<kbd>⌘V</kbd> then pastes the copied notes at the playhead, keeping their spacing, onto
+the sounds they were copied from. The pattern only gets longer if the notes run past
+its end.
+
+Once you press play, <kbd>⌘V</kbd> pastes after the copied notes again until you put the
+playhead in the pattern again. To paste somewhere else, right-click the note area and
+choose **Paste**: the notes go where you clicked.
+
 ## Without a controller
 
 Three panels in the **View** menu do in the window what otherwise needs hardware:
