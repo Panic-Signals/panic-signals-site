@@ -10,12 +10,16 @@ DECKARD draws the MK3's screens itself, so they can be restyled: colours, fonts 
 text sizes, plus an optional animated border on the chosen button. Every page uses the
 theme, so one file changes them all.
 
-Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes with three:
+Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes with four:
 
 - **Maschine:** the look of Maschine's own screens.
-- **Palenight:** deep blue-grey with lavender text and purple and cyan accents. A new
-  install starts with it.
+- **Palenight:** lavender text and purple and cyan accents on black, so the screens
+  blend into the MK3's bezel. A new install starts with it.
+- **Palenight Blue Green:** the same colours on a deep blue-grey background.
 - **Solarized Dark.**
+
+> **Note:** Only in the next release: Palenight Blue Green, and Palenight's black
+> background. Until then, Palenight is the deep blue-grey one.
 
 <figure class="screenshot">
   <img src="/manual/screenshots/theme-maschine-lfo.png" alt="The LFO page on the MK3's screens in the Maschine theme." loading="lazy" />
@@ -23,8 +27,8 @@ Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes w
 </figure>
 
 <figure class="screenshot">
-  <img src="/manual/screenshots/theme-palenight-lfo.png" alt="The same LFO page in the Palenight theme." loading="lazy" />
-  <figcaption>…and in Palenight.</figcaption>
+  <img src="/manual/screenshots/theme-palenight-blue-green-lfo.png" alt="The same LFO page in the Palenight Blue Green theme: a deep blue-grey background, white and lavender text, the TRI and SYNC buttons filled purple, and the wave drawn in blue." loading="lazy" />
+  <figcaption>…and in Palenight Blue Green.</figcaption>
 </figure>
 
 ### Making your own

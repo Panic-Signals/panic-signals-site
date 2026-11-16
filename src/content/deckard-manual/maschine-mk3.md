@@ -136,6 +136,77 @@ playing pattern.
 These are the focused sound's settings. They decide whether pad pressure is recorded;
 see [Pad pressure on the MK3](/software/deckard/manual/expression#pad-pressure-on-the-mk3).
 
+## The Groove pages
+
+> **Note:** Only in the next release.
+
+A sound's **Groove** pages (Swing, Variation and Generate) work as the MK3 manual says,
+with these differences.
+
+- **The last Groove page you used comes back.** <kbd>VARIATION</kbd>, or choosing
+  **Groove** again, opens the page you left, for every sound. Switching sounds, or
+  between <kbd>PAD MODE</kbd> and <kbd>KEYBOARD</kbd>, keeps it.
+- **The right screen shows what Generate writes.** It follows the **Mode** knob.
+
+### Euclidean
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-euclidean.png" alt="The MK3's two screens on the Generate page in Euclidean mode. The right screen shows a circle of eight dots with 5 over 8 in the middle, cyan arcs on the five hits, an amber hand pointing at the third step, and ROTATE 0 below. The knobs read Mode Euclidean, Steps 8, Fills 5, Rotate 0, Division 1/16, Root Note C3 and Live Off." loading="lazy" />
+  <figcaption>Euclidean mode: five fills over eight steps, with the hand on the step playing.</figcaption>
+</figure>
+
+- **The circle** has a dot for each step, with the first step at the top. Each hit has
+  an arc along the rim as long as its step. The middle shows Fills over Steps.
+- **Rotate** turns the hits around the circle. The circle only changes when you turn
+  Steps, Fills or Rotate.
+- **The hand** shows where the pattern is playing, and the step under it lights.
+- **Knob 6, Root (Note),** sets the note Generate writes. It's the sound's **Base
+  Key**, the pitch its pad plays, so it's saved with the project and changes the pad
+  too. With **Live** on, the pattern is written again as you turn it. To make a
+  melody, generate the rhythm on one note, then move notes up and down in the
+  pattern.
+
+### Random
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-random.png" alt="The MK3's two screens on the Generate page in Random mode. The right screen shows a piano roll from C3 to C4 with ten cyan notes over a bar, an amber playhead with the note under it lit, 55 % · 10 notes at the top, and a small Velocity Natural curve in the corner. The knobs read Mode Random, Probability 55 %, Velocity 10 %, Note Lo C3, Note Hi C4, Note Count 1 and Distribution Natural." loading="lazy" />
+  <figcaption>Random mode: the generated notes over the note range, with the playhead.</figcaption>
+</figure>
+
+- **The roll** shows the focused pattern's notes over the **Note Lo** to **Note Hi**
+  range, with a line on each beat and bar. Louder notes are brighter.
+- **The playhead** moves with the song, and the notes under it light.
+- **The top line** shows Probability and how many notes there are. The corner shows
+  the Velocity distribution's curve.
+
+## Ratchets on the Step and Events pages
+
+> **Note:** Only in the next release.
+
+<kbd>STEP</kbd> and <kbd>EVENTS</kbd> have a second knob page for the selected notes.
+Press <kbd>▶</kbd> to open it and <kbd>◀</kbd> to go back.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-ratchet.png" alt="The MK3's two screens on the Step page's second knob page. The selected note on the left screen, and again larger on the right, is split by three thin lines into four hits. The knobs read Probability 100 %, Ratchet 4, Shape Down and Floor 20." loading="lazy" />
+  <figcaption>The Step page's second knob page, with a four-hit ratchet selected.</figcaption>
+</figure>
+
+| Knob | Sets |
+| --- | --- |
+| 1 **Probability** | The notes' chance of playing, as before. |
+| 2 **Ratchet** | How many times each note plays inside its length, 1 to 16. |
+| 3 **Shape** | **Flat**, **Down** or **Up**. |
+| 4 **Floor** / **Ceiling** | Where the velocity is heading: **Floor** for falling notes, **Ceiling** for rising ones. |
+
+- Knob 4 is named after the notes you've selected. With falling and rising notes
+  selected together it reads **Target**, and moves each note's own Floor or Ceiling.
+- Both screens draw a thin line across a note for each hit after the first.
+- The step grid (<kbd>SHIFT</kbd> + <kbd>STEP</kbd>) has no second knob page, so set
+  ratchets from <kbd>STEP</kbd> or <kbd>EVENTS</kbd>.
+
+[Ratchets](/software/deckard/manual/differences-from-maschine#ratchets) explains what
+each setting does.
+
 ## Macros
 
 <kbd>SHIFT</kbd> + <kbd>MACRO</kbd> opens Set Macro, as in Maschine: touch a knob to
