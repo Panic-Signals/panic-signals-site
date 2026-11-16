@@ -122,8 +122,6 @@ Three panels in the **View** menu do in the window what otherwise needs hardware
   included, and what DECKARD sends to each output. It helps when setting up MPE
   keyboards and MIDI CC routes.
 
-=======
-
 ## Not there yet
 
 These parts of Maschine aren't in DECKARD yet:
