@@ -34,7 +34,7 @@ written to behave like Maschine's. They're close, but not identical.
 | The controller's behaviour is built in. | Each page is an editable script: **Controller ▸ Open Controller Scripts Folder**. |
 | Pad pressure only shapes Note Repeat. | Each sound's **Pad Touch** setting can record pressure as aftertouch or a CC. See [Expressive recording](/software/deckard/manual/expression). |
 | A plug-in's extra outputs reach the mixer by routing them into other sounds' audio inputs. | Each extra output gets its own mixer strip. See [Multi-output plug-ins](/software/deckard/manual/multi-output-plug-ins). |
-| Plug-ins run on macOS and Windows. | Plug-ins run on macOS, Windows and Linux. DECKARD loads VST3 plug-ins, VST2 plug-ins that have a VST3 version, and Audio Units on macOS. On Linux, Windows plug-ins run through Wine and yabridge (**Preferences ▸ Plug-ins ▸ Windows plug-ins**). |
+| Plug-ins run on macOS and Windows. | Plug-ins run on macOS, Windows and Linux. DECKARD loads VST3 plug-ins, VST2 plug-ins that have a VST3 version, and Audio Units on macOS. On Linux, Windows plug-ins run through Wine and yabridge (**Preferences ▸ Plug-ins: Manager ▸ Windows plug-ins**). |
 | **Edit ▸ Undo** steps back one at a time. | **Edit ▸ Undo History** also jumps back up to 30 steps at once. |
 
 </div>
@@ -88,13 +88,13 @@ On the MK3, ratchets are on the [Step and Events pages](/software/deckard/manual
 
 These parts of Maschine aren't in DECKARD yet:
 
-- **Aux sends** in the mixer, and internal audio inputs between channels.
-- **Recording audio onto a track** while the song plays (sampling works).
-- Some context-menu items: Rename, Clear, Double and Color on patterns, scenes and
+- **Punching in and re-recording audio takes** while the song plays. Sampling works,
+  and a recorded loop plays with its pattern.
+- Some context-menu items: Clear and Color on scenes, and Rename, Clear and Color on
   sections.
 - Editing a clip's notes, and the MK3's clip pages.
-- **MIDI mode** (the MK3 as a plain MIDI controller), the footswitch input, NKS and
-  the light guide.
+- **MIDI mode** (the MK3 as a plain MIDI controller), the footswitch input and the NKS
+  light guide.
 - Running DECKARD as a plug-in inside a DAW.
 
 ## Files and Maschine
@@ -103,19 +103,20 @@ These parts of Maschine aren't in DECKARD yet:
   it saves open in Maschine 3, and files it doesn't change are written back byte for
   byte.
 - **What DECKARD adds is saved in an extra block** inside the `.mxprj`: note
-  expression, ratchets, LFOs and envelopes, mod-matrix routes, CC routes and
-  extra-output strips.
+  expression, ratchets, LFOs and envelopes, mod-matrix routes, CC and CV routes, each
+  sound's Pad Touch settings and extra-output strips.
   Maschine skips the block, so the project still opens there.
-- **Replicant and Plaits** are saved like plug-ins. Maschine reports them as missing
+- **Replicant, Plaits, Zhora and the Tuner** are saved like plug-ins. Maschine reports them as missing
   plug-ins and can't play them, but keeps their settings when it saves.
 
 <aside class="callout warning" role="note">
   <p class="callout-title">Saving in Maschine deletes DECKARD’s extras</p>
   <p>DECKARD opens Maschine projects and saves them in Maschine’s format, so the same file opens in both programs. But if you open a project in Maschine and <strong>save it there</strong>, Maschine deletes everything only DECKARD has:</p>
   <ul>
-    <li>LFOs and envelopes, and the mod-matrix and MIDI CC routes they drive;</li>
+    <li>LFOs and envelopes, and the mod-matrix, MIDI CC and CV routes they drive;</li>
     <li>note expression: polyphonic aftertouch, MPE pressure, slide and pitch, and release velocity;</li>
     <li>ratchets: each note plays once again;</li>
+    <li>each sound’s Pad Touch settings;</li>
     <li>the mixer strips of multi-output plug-ins.</li>
   </ul>
   <p>Your notes, patterns, sounds and settings that Maschine has too are kept. Replicant and Plaits keep their settings, but Maschine can’t play them.</p>

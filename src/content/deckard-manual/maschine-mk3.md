@@ -42,14 +42,18 @@ do is described in [Modulation](/software/deckard/manual/modulation#lfos-and-env
   one there.
   - <kbd>ERASE</kbd> + pad removes an LFO.
   - <kbd>MUTE</kbd> + pad mutes or unmutes it. Muted LFOs light red.
-- **Display buttons 1–5** pick the shape. **6 SYNC** switches between tempo-synced
+- **Display buttons 1–5** pick the shape. Button 5 is Random; press it again for
+  Wander. **6 SYNC** switches between tempo-synced
   and free (Hz). **7 ENV** switches the slot to an envelope. **8 TRIG** sets the
-  trigger to the focused sound, or off.
-- **Knobs 1–7** set Shape, Rate, Phase, Level, Quantize, Trigger and Fade in.
+  trigger to the focused sound, or off. <kbd>SHIFT</kbd> + **button 8** (DELETE)
+  removes the focused LFO.
+- **Knobs 1–7** set Shape, Rate, Phase, Level, Quantize, Trigger and Fade in. Fade in
+  works once the LFO has a trigger.
 - **The left screen** shows the LFO's name, **the right screen** its wave.
 
-In Envelope mode, buttons 1–5 go dark, button 6 becomes **RETRIG**, and knobs 1–4 set
-Attack, Decay, Sustain and Release.
+In Envelope mode, buttons 1–5 go dark, button 6 becomes **RETRIG**, and button 8 sets
+the trigger to the focused sound. Knobs 1–7 set Attack, Decay, Sustain, Release,
+Level, Quantize and Trigger.
 
 <figure class="screenshot">
   <img src="/manual/screenshots/mk3-lfo.png" alt="The MK3's two screens on the LFO page, showing LFO 1 and a stepped triangle wave." loading="lazy" />
@@ -74,8 +78,11 @@ per column, eight at a time. What routes are is described in
 
 - **Each column is a route**, with rows Source, Group, Sound, Module, Destination and
   Depth.
-- **The display button above a column** moves its highlight down a row. The page opens
-  with Depth highlighted.
+- **The display button above a column** moves its highlight down a row, and from Depth
+  back to Source. The page opens with Depth highlighted.
+- <kbd>SHIFT</kbd> + **a column's display button** switches that route between Range
+  and Add (see [The mod matrix](/software/deckard/manual/modulation#the-mod-matrix)).
+  Depth reads Add for an Add route.
 - **The knob below a column** changes its highlighted row.
 - <kbd>ERASE</kbd> + **knob** removes that route.
 - **The empty column** after the last route makes a new one. It becomes a route once
@@ -119,7 +126,8 @@ pads stay free to choose what each step plays.
 In Maschine, <kbd>AUTO</kbd> writes automation while you hold it. In DECKARD one press
 switches Auto-write on and the next switches it off, with or without
 <kbd>SHIFT</kbd>. While it's on, turning knobs 1–8 records their movement into the
-playing pattern.
+playing pattern. Holding still works too: hold <kbd>AUTO</kbd>, turn a knob, and
+Auto-write goes off again when you let go.
 
 - <kbd>ERASE</kbd> + **knob** removes that knob's automation.
 - <kbd>SHIFT</kbd> + **pad 10** (Clear Auto) removes the focused sound's automation in
@@ -196,6 +204,7 @@ Press <kbd>▶</kbd> to open it and <kbd>◀</kbd> to go back.
 
 - Knob 4 is named after the notes you've selected. With falling and rising notes
   selected together it reads **Target**, and moves each note's own Floor or Ceiling.
+  With only Flat notes selected, knob 4 is empty.
 - Both screens draw a thin line across a note for each hit after the first.
 - The step grid (<kbd>SHIFT</kbd> + <kbd>STEP</kbd>) has no second knob page, so set
   ratchets from <kbd>STEP</kbd> or <kbd>EVENTS</kbd>.

@@ -45,8 +45,8 @@ example, offers 16.
 
 Extra-output strips are tinted blue and sit in the **groups mixer**, after the groups
 and just left of the Master. To get there, double-click a group tab at the top of the
-mixer. (Click a tab for that group's sounds; double-click a group's strip to go back
-to its sounds.)
+mixer. (Click a tab for that group's sounds; double-click the top of a group's strip, beside
+its name, to go back to its sounds.)
 
 | Part | Shows |
 | --- | --- |
@@ -54,7 +54,7 @@ to its sounds.)
 | **Name** | The output: **Out 2**, **Out 3**, and so on. When the plug-in gives the output a real name, such as "Snare", it's added. |
 | **Mode** | **STEREO**, **MONO**, or **SPLIT L** / **SPLIT R**. |
 | **Fader, pan, meter** | The strip's own. The fader of the sound that owns the plug-in doesn't move it. |
-| **M** and solo | Mute and solo this output alone. |
+| **M** | Mutes this output alone. Right-click it to solo the output. |
 | **Output** | Where the strip plays: see below. |
 
 ## Stereo, mono or split
@@ -86,9 +86,11 @@ Click the button at the bottom of a strip to choose its output.
 - **A new strip** takes the next free hardware output of your audio interface. When
   there's none, it plays through its parent: the group for a sound's plug-in, the
   master for a group's.
-- **Group**, **Master**, another group or sound, the main outputs, or any other
-  hardware output (**Ext. 2**, **Ext. 3**…) can be chosen. Anything that would feed the
-  strip back into itself is left out.
+- **Group**, **Master**, another group, the main outputs, or any other hardware output
+  (**Ext. 2**, **Ext. 3**…) can be chosen. So can a sound whose first slot is an
+  effect: the strip then plays through that sound's effects, like a send. Anything
+  that would feed the strip back into itself is left out.
+- A strip of one of the master's plug-ins can only go to a hardware output.
 - **None** silences it.
 
 ## Exporting
@@ -99,7 +101,7 @@ each drum comes out as its own file.
 
 ## Limits
 
-- A strip routed into a sound goes through that sound's fader, but not its effects.
-- DECKARD has no aux sends yet, so a strip can't feed a send effect.
+- A strip has no aux sends of its own. To put an effect on it, set its output to a
+  sound whose first slot is that effect.
 - Soloing a strip that belongs to a master plug-in keeps the master's main output
   audible.

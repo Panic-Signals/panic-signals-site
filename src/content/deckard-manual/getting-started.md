@@ -57,8 +57,10 @@ Projects saved by DECKARD open in Maschine 3, and Maschine projects open in DECK
   <p class="callout-title">Saving in Maschine deletes DECKARD’s extras</p>
   <p>DECKARD opens Maschine projects and saves them in Maschine’s format, so the same file opens in both programs. But if you open a project in Maschine and <strong>save it there</strong>, Maschine deletes everything only DECKARD has:</p>
   <ul>
-    <li>LFOs and envelopes, and the mod-matrix and MIDI CC routes they drive;</li>
+    <li>LFOs and envelopes, and the mod-matrix, MIDI CC and CV routes they drive;</li>
     <li>note expression: polyphonic aftertouch, MPE pressure, slide and pitch, and release velocity;</li>
+    <li>ratchets: each note plays once again;</li>
+    <li>each sound’s Pad Touch settings;</li>
     <li>the mixer strips of multi-output plug-ins.</li>
   </ul>
   <p>Your notes, patterns, sounds and settings that Maschine has too are kept. Replicant and Plaits keep their settings, but Maschine can’t play them.</p>
