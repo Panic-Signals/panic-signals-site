@@ -3,7 +3,6 @@ title: Multi-output plug-ins
 order: 8
 description: Give each extra output of Kontakt, a drum sampler or any multi-output plug-in its own mixer strip, output and stem.
 maschine: ['“Controlling your mix” in the Maschine 3 Software Manual']
-preview: Multi-output strips are finished but not in a DECKARD release yet. They'll arrive in the next one. Until then this chapter describes what's coming.
 ---
 
 Plug-ins such as Kontakt, Battery-style drum samplers and modular hosts can send

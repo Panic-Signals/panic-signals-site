@@ -2,7 +2,6 @@
 title: Controlling modular synths
 order: 10
 description: Send LFOs and envelopes to a modular synth as control voltage, play a voice with Zhora and keep it in tune, and tune anything else with the Tuner.
-preview: CV outputs, Zhora and the Tuner are finished but not in a DECKARD release yet. They'll arrive in the next one. Until then this chapter describes what's coming.
 ---
 
 With an audio interface that can send DC, DECKARD can drive a modular synth directly.

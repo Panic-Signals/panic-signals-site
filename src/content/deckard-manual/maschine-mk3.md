@@ -138,8 +138,6 @@ see [Pad pressure on the MK3](/software/deckard/manual/expression#pad-pressure-o
 
 ## The Groove pages
 
-> **Note:** Only in the next release.
-
 A sound's **Groove** pages (Swing, Variation and Generate) work as the MK3 manual says,
 with these differences.
 
@@ -180,8 +178,6 @@ with these differences.
   the Velocity distribution's curve.
 
 ## Ratchets on the Step and Events pages
-
-> **Note:** Only in the next release.
 
 <kbd>STEP</kbd> and <kbd>EVENTS</kbd> have a second knob page for the selected notes.
 Press <kbd>▶</kbd> to open it and <kbd>◀</kbd> to go back.

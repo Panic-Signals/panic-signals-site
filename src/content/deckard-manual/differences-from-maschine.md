@@ -41,8 +41,6 @@ written to behave like Maschine's. They're close, but not identical.
 
 ## Ratchets
 
-> **Note:** Only in the next release.
-
 A ratchet makes one note play several times inside its own length. Maschine has no
 ratchets; in DECKARD every note can have one.
 
