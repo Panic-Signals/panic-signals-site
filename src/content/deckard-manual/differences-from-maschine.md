@@ -133,7 +133,14 @@ what you'd hear at the master out, whether or not the song is playing.
 
 **View ▸ Session Recorder** shows or hides the recorder. It's a fixed-size window with a
 **📌 Pin** toggle, on to start with, that floats it above other windows so you can
-glance at the timer while you work. It shows:
+glance at the timer while you work.
+
+<figure class="screenshot narrow">
+  <img src="/manual/screenshots/session-recorder.png" alt="The DECKARD Recorder window mid-set. Its title bar reads DECKARD Recorder. Below, a red dot and RECORDING SESSION sit beside a highlighted 📌 Pin toggle. A large centred timer reads 00:42:17, and under it: started 22:14, 730.7 MB on disk, ~3h 51m left. A red scrolling waveform fills the middle. Green L and R level meters below it read peak -1.3 dB and peak -2.6 dB. A line reads 48 kHz · 24-bit · stereo, then the file name session-night-run-2026-11-17-2214.wav, and a Stop button." loading="lazy" />
+  <figcaption>The Session Recorder window partway through a set.</figcaption>
+</figure>
+
+It shows:
 
 - a running **set timer**, counting up as HH:MM:SS;
 - a scrolling **waveform** of the master output;
