@@ -120,14 +120,25 @@ archiving a session. Maschine has nothing like it.
 
 To record:
 
-1. Choose **File ▸ Record Session to File…** and pick where to save it. Recording
-   starts and the **Session Recorder** window opens.
-2. Choose **File ▸ Stop Session Recording** when you're done.
+1. Choose **File ▸ Record Session to File…** and pick where to save it. This *arms*
+   recording and opens the **Session Recorder** window with its live meters and
+   waveform. Nothing is written yet, and the header reads **READY**.
+2. Press **Play ▸** in the window, or <kbd>Space</kbd> while the window is focused, to
+   start recording. The header reads **RECORDING SESSION**.
+3. **Pause ⏸** (or <kbd>Space</kbd> again) holds the recording; the header reads
+   **PAUSED**. Press **Play ▸** to carry on.
+4. Choose **File ▸ Stop Session Recording**, or **Stop** in the window, when you're
+   done. This finalizes the file. If you arm and stop without ever pressing **Play ▸**,
+   no file is written.
+
+Pausing holds the timer and leaves the paused time out of the file. Resuming carries on
+into the same file, so the file holds exactly the audio recorded while playing, with the
+paused spans left out.
 
 The file is named `session-<project>-<date>-<time>.wav` to start with. DECKARD records
 the **master bus**, after its level and pan, as **24-bit stereo at the engine's sample
-rate**. Recording is continuous and independent of the transport: it captures exactly
-what you'd hear at the master out, whether or not the song is playing.
+rate**. Recording is independent of the song's transport: it captures exactly what you'd
+hear at the master out, whether or not the song is playing.
 
 ### The Recorder window
 
@@ -136,17 +147,19 @@ what you'd hear at the master out, whether or not the song is playing.
 glance at the timer while you work.
 
 <figure class="screenshot narrow">
-  <img src="/manual/screenshots/session-recorder.png" alt="The DECKARD Recorder window mid-set. Its title bar reads DECKARD Recorder. Below, a red dot and RECORDING SESSION sit beside a highlighted 📌 Pin toggle. A large centred timer reads 00:42:17, and under it: started 22:14, 730.7 MB on disk, ~3h 51m left. A red scrolling waveform fills the middle. Green L and R level meters below it read peak -1.3 dB and peak -2.6 dB. A line reads 48 kHz · 24-bit · stereo, then the file name session-night-run-2026-11-17-2214.wav, and a Stop button." loading="lazy" />
-  <figcaption>The Session Recorder window partway through a set.</figcaption>
+  <img src="/manual/screenshots/session-recorder.png" alt="The DECKARD Recorder window mid-recording. Its title bar reads DECKARD Recorder. Below, a red dot and RECORDING SESSION sit beside a highlighted 📌 Pin toggle. A large centred timer reads 00:42:17, and under it: started 22:14, 730.7 MB on disk, ~3h 51m left. A red scrolling stereo waveform fills the middle in two lanes, the left channel above the right. Green L and R level meters below read peak -1.3 dB and peak -2.6 dB. A line reads 48 kHz · 24-bit · stereo, then the file name session-night-run-2026-11-17-2214.wav, and a controls row with a Pause button and a Stop button." loading="lazy" />
+  <figcaption>The Session Recorder window while recording.</figcaption>
 </figure>
 
 It shows:
 
-- a running **set timer**, counting up as HH:MM:SS;
-- a scrolling **waveform** of the master output;
+- its state in the header — **READY**, **RECORDING SESSION** or **PAUSED**;
+- a running **set timer**, counting up as HH:MM:SS, which holds while paused;
+- a scrolling **stereo waveform** of the master output, the left channel above the right;
 - **L** and **R** level meters with their **peak dB**;
 - the **time remaining** before the recording has to stop;
-- the sample rate and the file name.
+- the sample rate and the file name;
+- **Play ▸** / **Pause ⏸** and **Stop** controls.
 
 ### One recorder at a time
 
