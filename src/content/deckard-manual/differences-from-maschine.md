@@ -111,6 +111,57 @@ Three panels in the **View** menu do in the window what otherwise needs hardware
   included, and what DECKARD sends to each output. It helps when setting up MPE
   keyboards and MIDI CC routes.
 
+## Session recording
+
+> **Note:** Only in the next release.
+
+DECKARD can record its own master output to a WAV file, for capturing a live set or
+archiving a session. Maschine has nothing like it.
+
+To record:
+
+1. Choose **File ▸ Record Session to File…** and pick where to save it. Recording
+   starts and the **Session Recorder** window opens.
+2. Choose **File ▸ Stop Session Recording** when you're done.
+
+The file is named `session-<project>-<date>-<time>.wav` to start with. DECKARD records
+the **master bus**, after its level and pan, as **24-bit stereo at the engine's sample
+rate**. Recording is continuous and independent of the transport: it captures exactly
+what you'd hear at the master out, whether or not the song is playing.
+
+### The Recorder window
+
+**View ▸ Session Recorder** shows or hides the recorder. It's a fixed-size window with a
+**📌 Pin** toggle, on to start with, that floats it above other windows so you can
+glance at the timer while you work. It shows:
+
+- a running **set timer**, counting up as HH:MM:SS;
+- a scrolling **waveform** of the master output;
+- **L** and **R** level meters with their **peak dB**;
+- the **time remaining** before the recording has to stop;
+- the sample rate and the file name.
+
+### One recorder at a time
+
+Session recording and the Sampler's own recorder share the engine's single master tap,
+so only one can run at a time. While a session recording is going, sampling into the
+**Sampler** is unavailable, and starting a session recording is unavailable while
+you're sampling.
+
+### When it stops on its own
+
+A session records to one WAV file, and DECKARD keeps that file valid as it goes, so a
+recording survives a crash. It also stops cleanly on its own when:
+
+- free disk space nears the reserve set in **Preferences** (about 1 GB to start with);
+- the file reaches the **4 GB** WAV size ceiling — it's a single file and isn't split;
+- the audio device or the sample rate changes while it's recording.
+
+### Preferences
+
+**Preferences** has a **recording folder** and a **disk-reserve** (in MB) setting for
+session recording.
+
 =======
 
 ## Not there yet
