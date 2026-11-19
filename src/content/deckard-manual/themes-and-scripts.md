@@ -100,6 +100,10 @@ over which knobs and how to read its values in hertz, milliseconds and decibels.
    name it uses but never declares, the MK3 shows the error and the plug-in goes back to
    its usual pages until you fix it.
 
+DECKARD comes with mappings for Arturia Pigments, Native Instruments Massive X and
+Monark, Plugin Alliance bx_oberhausen and Vital. A mapping of yours with the same
+folder and file name replaces DECKARD's.
+
 The "Plug-in mappings" section of
 [docs/controller-api.md](https://github.com/Panic-Signals/Deckard/blob/main/docs/controller-api.md)
 describes the file, with an example. To write one for a new plug-in,
