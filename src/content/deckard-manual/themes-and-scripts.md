@@ -60,7 +60,7 @@ MK3 can each have their own.
 
 - A theme changes the window's backgrounds, lines and text, in every view.
 - Groups, sounds, patterns and scenes keep the colours you gave them, in every theme.
-- **Maschine** and **Deep** are the ordinary dark window.
+- **Maschine** is the ordinary dark window.
 - A theme you made yourself restyles the MK3's screens, but not the window yet.
 
 ## Controller scripts
