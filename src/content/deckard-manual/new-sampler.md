@@ -9,9 +9,10 @@ preview: Only in the next release.
 The New Sampler is a second sampler beside Maschine's. It does what the Sampler does,
 and it also listens to what you load: it finds the sample's tempo and key, plays it in
 time with the song without changing its pitch, separates it into stems, and lets every
-slice play in its own way. It's edited in the Sampling view, on the same **RECORD**,
-**EDIT**, **SLICE** and **ZONE** tabs as the Sampler, and on the Maschine MK3's
-<kbd>SAMPLING</kbd> page.
+slice play in its own way, or layers several samples into one sound. It's edited in the
+Sampling view, on the same **RECORD**, **EDIT**, **SLICE** and **ZONE** tabs as the
+Sampler and a **LAYERS** tab of its own, and on the Maschine MK3's <kbd>SAMPLING</kbd>
+page.
 
 Everything below is DECKARD's own. For recording, the edit functions and zones, which
 work as they do in Maschine, see NI's manual.
@@ -158,6 +159,65 @@ sound's slices, whichever key it is; with **Random**, any but the one before.
 **MUNGE**, among the edit functions, rebuilds the sample from its own parts with
 **SWING**, **GRUNGE** and **COMB**. It needs the sample's tempo.
 
+## Layers
+
+A New Sampler sound can play up to eight samples at once, each a **layer**. Every note
+plays all of them, over the same keys, and **Morph** fades from one to the next as the
+note sounds. A sound with layers has no slices, and a sliced sound has no layers.
+
+Open the **LAYERS** tab of the Sampling view. It's there for a New Sampler that isn't
+sliced, even an empty one.
+
+- Drop samples on the lanes: on an empty lane they become new layers, on a layer they
+  replace its sample and keep its settings. **+ LAYER** opens a file chooser instead.
+- DECKARD listens for each sample's root as it lands, so the layers play in tune with
+  each other.
+- Click a layer's name to edit it. Drag the name up or down to move the layer.
+  Right-click it for **Duplicate layer** and **Remove layer**.
+- **M** mutes a layer and **S** solos it. Drag the level at the right of its lane.
+
+The first time a sound gets layers, a One-shot amp envelope becomes an ADSR, so the
+layers sound for as long as you hold the note.
+
+### A layer's settings
+
+<div class="split">
+
+| Setting | What it does |
+|---------|--------------|
+| **LEVEL**, **PAN** | The layer's volume and place in the stereo field. |
+| **TUNE**, **ROOT** | Its tuning in semitones, and the key that plays it at its recorded pitch. |
+| **ATTACK**, **DECAY**, **SUSTAIN**, **RELEASE** | The layer's own envelope, on top of the sound's amp envelope. A slow attack on one layer lets it swell in under the others. |
+
+</div>
+
+**KEYS** (**LOW** and **HIGH**) is the range of keys the whole sound plays on.
+
+### Morph
+
+The strip above the lanes shows where each layer is heard as the morph moves from left
+to right: its **window**. A layer fades in from **A** to **B**, is at full level from
+**B** to **C**, and fades out from **C** to **D**. The white line is where the morph is
+now. With **Morph** off, every layer plays at its level all the time.
+
+<div class="split">
+
+| Setting | What it does |
+|---------|--------------|
+| **ON** | Switches the morph on. |
+| **POSITION** | Where the morph starts from. |
+| **RATE**, **SYNC** | How long one pass takes: 0.05 to 500 seconds, or with **SYNC** on, 1/16 of a bar to 64 bars of the song. |
+| **SHAPE** | **Round** goes through the layers and wraps to the first again. **There and back** goes to the end and returns. |
+| **DEPTH** | How far **There and back** travels. **Round** always goes all the way. |
+| **RESET** | On, every note starts its own pass from **POSITION**. Off, all notes share one pass, which follows the song when synced. |
+| **FADE** | **Linear**, or **Equal power**, which keeps the loudness even where two unlike sounds cross. |
+| **WINDOWS** | **Even** while the windows are spread evenly over the layers. Drag one of the focused layer's four points on the strip to set a window by hand; click **WINDOWS** to spread them evenly again. |
+
+</div>
+
+**MORPH** is also a destination in [the mod matrix](/software/deckard/manual/modulation#the-mod-matrix),
+so an LFO, the mod wheel or pressure can move through the layers.
+
 ## Dragging a sample out
 
 On macOS you can drag what you hear into another application: a sampler plug-in, an
@@ -206,6 +266,31 @@ guess.
   6: **STEM ROOT**, **STEM TEMPO** and **STEM ANALYZE**. Display button 7 then shows the
   stem that will be used and goes round the zone's stems; **APPLY** sets the root, the
   tempo or both from that stem alone.
+
+### Layers
+
+On a sound with layers, press display button 4 again to go from **ZONE** to **LAYERS**,
+and once more to go back. The left display shows the layers' windows and where the
+morph is, the right display the layers. The pads still play the sounds. Samples are
+added to layers in the software.
+
+- Knob 7 picks the layer. Knob 8 is always its **LEVEL**.
+- Display buttons 5 to 8 mute the four layers shown. With <kbd>SHIFT</kbd> they solo.
+- <kbd>SHIFT</kbd> + display button 1 is **REMOVE** (the focused layer), and
+  <kbd>SHIFT</kbd> + display button 2 is **SPREAD** (the windows spread evenly again).
+
+<div class="split">
+
+| Page | Knobs |
+|------|-------|
+| **LAYER** | **PAN**, **TUNE**, **ROOT** |
+| **ENVELOPE** | **ATTACK**, **DECAY**, **SUSTAIN**, **RELEASE** |
+| **MORPH** | **MORPH**, **POSITION**, **RATE**, **SHAPE**, **DEPTH**, **RESET** |
+| **WINDOW** | **A**, **B**, **C**, **D**, **FADE** |
+
+</div>
+
+**RATE** is one knob: it turns through the synced lengths, then the free ones.
 
 ### Slicing
 
