@@ -1,12 +1,12 @@
 ---
-title: The New Sampler
+title: Sampler Preview
 order: 13
 description: A sampler that finds a sample's tempo and key, keeps it in time with the song, splits it into stems and chops it into slices that each play their own way.
 maschine: ['“Sampling and sample mapping” in the Maschine 3 Software Manual']
 preview: Only in the next release.
 ---
 
-The New Sampler is a second sampler beside Maschine's. It does what the Sampler does,
+Sampler Preview is a second sampler beside Maschine's. It does what the Sampler does,
 and it also listens to what you load: it finds the sample's tempo and key, plays it in
 time with the song without changing its pitch, separates it into stems, and lets every
 slice play in its own way, or layers several samples into one sound. It's edited in the
@@ -19,12 +19,12 @@ work as they do in Maschine, see NI's manual.
 
 <aside class="callout warning" role="note">
   <p class="callout-title">Maschine doesn't read these settings</p>
-  <p>A New Sampler's tempo, key, stems and per-slice settings are saved in a part of the project only DECKARD reads. Maschine opens the sound as a plain Sampler, and loses the rest if it saves the project. See <a href="/software/deckard/manual/differences-from-maschine#files-and-maschine">Files and Maschine</a>.</p>
+  <p>A Sampler Preview's tempo, key, stems and per-slice settings are saved in a part of the project only DECKARD reads. Maschine opens the sound as a plain Sampler, and loses the rest if it saves the project. See <a href="/software/deckard/manual/differences-from-maschine#files-and-maschine">Files and Maschine</a>.</p>
 </aside>
 
 ## Loading a sample
 
-1. Add a **New Sampler** to a sound.
+1. Add a **Sampler Preview** to a sound.
 2. Drop a loop, a one-shot or a whole song on it (WAV or MP3).
 
 Within a second or two the **EDIT** tab shows what it found:
@@ -33,7 +33,7 @@ Within a second or two the **EDIT** tab shows what it found:
 97.71 BPM · 20.75 beats · Key E min · Root E3
 ```
 
-A Sampler you already have converts with the **TO NEW SAMPLER** edit function, and back
+A Sampler you already have converts with the **TO SAMPLER PREVIEW** edit function, and back
 with **TO SAMPLER**.
 
 ## Tempo
@@ -66,12 +66,6 @@ The mode buttons choose how the sample follows the song:
 **SYNC** and **KEYS** need a tempo: set **BPM** by hand if none was found. The sample is
 stretched as it plays, so you can change the song's tempo while it sounds. **START**
 chooses the grid that notes played while the song runs start on.
-
-### Warp markers
-
-For a sample whose timing drifts, **MARKERS** puts warp markers on its hits,
-**QUANTIZE** moves them toward the **GRID** by **STRENGTH**, and **CLEAR** removes
-them.
 
 ## Key and root
 
@@ -161,11 +155,11 @@ sound's slices, whichever key it is; with **Random**, any but the one before.
 
 ## Layers
 
-A New Sampler sound can play up to eight samples at once, each a **layer**. Every note
+A Sampler Preview sound can play up to eight samples at once, each a **layer**. Every note
 plays all of them, over the same keys, and **Morph** fades from one to the next as the
 note sounds. A sound with layers has no slices, and a sliced sound has no layers.
 
-Open the **LAYERS** tab of the Sampling view. It's there for a New Sampler that isn't
+Open the **LAYERS** tab of the Sampling view. It's there for a Sampler Preview that isn't
 sliced, even an empty one.
 
 - Drop samples on the lanes: on an empty lane they become new layers, on a layer they
@@ -232,7 +226,7 @@ You get the part selected, or else the part the zone plays, as a WAV file. Hold
 ## On the Maschine MK3
 
 Press <kbd>SAMPLING</kbd> and choose **EDIT**. The <kbd>◀</kbd> and <kbd>▶</kbd> page
-buttons go through the New Sampler's knob pages.
+buttons go through Sampler Preview's knob pages.
 
 <div class="split">
 
@@ -243,7 +237,6 @@ buttons go through the New Sampler's knob pages.
 | **TAIL / MOTION** | **TAIL**, **MOTION** |
 | **SYNC** | **START** |
 | **STEMS** | The lanes' levels. Display buttons 5 to 8 mute them; with <kbd>SHIFT</kbd> they solo. |
-| **WARP** | **GRID**, **STRENGTH** |
 
 </div>
 
