@@ -23,7 +23,8 @@ Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes w
 - **Deep:** black screens, with whatever is lit in the focused group's colour and text
   in IBM Plex, the font of DECKARD's window. Each knob's dial sits at the left of its
   cell, the parameters' section names run along one row above the knobs' names, and the
-  chain is a strip of device pictures under the top buttons. On the Control page, a
+  chain is a strip under the top buttons: each device's name after an instrument or FX
+  icon, the focused one framed. On the Control page, a
   plug-in's own picture shows on the left screen when its first four knobs have no
   pictures of their own.
 
@@ -41,7 +42,7 @@ Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes w
 </figure>
 
 <figure class="screenshot">
-  <img src="/manual/screenshots/theme-deep-control.png" alt="The Control page on the MK3's screens in the Deep theme: black screens with the Master, Group and Sound buttons along the top, MASTER filled red. Under them a strip of the chain's devices, Bass Synth framed. Below, red pictures over the knobs: a filter's curve over Cutoff and Resonance, an envelope over Attack and Release, and a compressor's curve over Threshold and Ratio, with FILTER, AMP ENV and COMP above the knobs' names and values." loading="lazy" />
+  <img src="/manual/screenshots/theme-deep-control.png" alt="The Control page on the MK3's screens in the Deep theme: black screens with the Master, Group and Sound buttons along the top, MASTER filled red. Under them the chain in one row, each device's name after an instrument or FX icon: Pigments, framed, then EQ, Compressor, Raum and a plus for a new one. Below, red pictures over the knobs: a filter's curve over Cutoff and Resonance, an envelope over Attack and Release, and a compressor's curve over Threshold and Ratio, with FILTER, AMP ENV and COMP above the knobs' names and values." loading="lazy" />
   <figcaption>The Control page in Deep, with pictures over the knobs.</figcaption>
 </figure>
 
