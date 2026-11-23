@@ -164,6 +164,10 @@ sliced, even an empty one.
 
 - Drop samples on the lanes: on an empty lane they become new layers, on a layer they
   replace its sample and keep its settings. **+ LAYER** opens a file chooser instead.
+- Record them: on the **RECORD** tab, **LAYER** chooses the layer the next take goes
+  to, or **New** for a layer of its own. Clicking a take in the list only selects it, so
+  the layers keep the takes they have. To put another take on a layer, right-click the
+  take and choose **To layer 1** (or any other), or **To a new layer**.
 - DECKARD listens for each sample's root as it lands, so the layers play in tune with
   each other.
 - Click a layer's name to edit it. Drag the name up or down to move the layer.
