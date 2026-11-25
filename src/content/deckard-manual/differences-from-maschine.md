@@ -20,6 +20,17 @@ Most of Maschine is there and works as NI's manual describes:
   installed;
 - Maschine's keyboard shortcuts, including Take and Step undo.
 
+### Looping part of a song
+
+In the Song view, click **Loop** in the transport to show a highlighted loop range in the
+timeline. Song playback repeats the arrangement inside this range.
+
+- Drag inside the highlighted range to move it.
+- Drag either edge to resize it. The pointer changes to a horizontal resize pointer over
+  the resize area.
+- Moving and resizing snap to complete bars, and the range stays inside the arrangement.
+- The loop state and range are saved with the project.
+
 DECKARD's versions of Maschine's instruments and effects are its own sound engines,
 written to behave like Maschine's. They're close, but not identical.
 
