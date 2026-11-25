@@ -25,11 +25,21 @@ Most of Maschine is there and works as NI's manual describes:
 In the Song view, click **Loop** in the transport to show a highlighted loop range in the
 timeline. Song playback repeats the arrangement inside this range.
 
+<figure class="screenshot">
+  <img src="/manual/screenshots/song-loop-region.png" alt="Song view showing the highlighted loop range from bar 5 through bar 12 in the timeline." loading="lazy" />
+  <figcaption>The Song loop range highlighted in the timeline.</figcaption>
+</figure>
+
 - Drag inside the highlighted range to move it.
 - Drag either edge to resize it. The pointer changes to a horizontal resize pointer over
   the resize area.
 - Moving and resizing snap to complete bars, and the range stays inside the arrangement.
 - The loop state and range are saved with the project.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/song-loop-resize.png" alt="Song view showing the horizontal resize pointer over the right edge of the loop range." loading="lazy" />
+  <figcaption>Hover over either loop edge to resize the range.</figcaption>
+</figure>
 
 DECKARD's versions of Maschine's instruments and effects are its own sound engines,
 written to behave like Maschine's. They're close, but not identical.
