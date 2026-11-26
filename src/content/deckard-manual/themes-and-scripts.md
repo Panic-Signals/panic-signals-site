@@ -10,7 +10,9 @@ DECKARD draws the MK3's screens itself, so they can be restyled: colours, fonts 
 text sizes, plus an optional animated border on the chosen button. Every page uses the
 theme, so one file changes them all.
 
-Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes with six:
+Choose the screens' theme in **Preferences ▸ Hardware ▸ Hardware theme**. **Desktop
+theme** is the menu above it, and it does not change the MK3. DECKARD comes with
+eighteen. Six are drawn in full:
 
 - **Maschine:** the look of Maschine's own screens.
 - **Palenight:** lavender text and purple and cyan accents on black, so the screens
@@ -27,6 +29,11 @@ Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes w
   icon, the focused one framed. On the Control page, a
   plug-in's own picture shows on the left screen when its first four knobs have no
   pictures of their own.
+
+Twelve more are palettes for the screens: **Nord**, **Gruvbox**, **Dracula**,
+**Catppuccin**, **Tokyo Night**, **One Dark**, **Rosé Pine**, **Kanagawa**,
+**Everforest**, **Monokai**, **Ayu** and **GitHub Dark**. They are not offered as
+desktop themes.
 
 > **Note:** Only in the next release: Deep, Palenight Blue Green, and Palenight's black
 > background. Until then, Palenight is the deep blue-grey one.
@@ -46,6 +53,34 @@ Choose one in **Preferences ▸ Hardware ▸ Controller theme**. DECKARD comes w
   <figcaption>The Control page in Deep, with pictures over the knobs.</figcaption>
 </figure>
 
+### Editing colours
+
+Under the two menus, **Edit** has a **Desktop** tab and a **Hardware** tab. Changing
+one does not change the other. The screens and the window update as you change a
+colour.
+
+**Desktop** sets the window's **Background** and **Text**. Panels, buttons and
+selection are mixed from those two. Groups, sounds, patterns and scenes keep the
+colours you gave them. **Reset** puts the desktop theme chosen above back.
+
+**Hardware** sets the screens:
+
+- **Background**, the screens behind everything, and **Text**, the names and values.
+- **Muted**, for labels and ticks.
+- **Accent**, for knobs, markers, and the orange parts of a plug-in picture.
+- **Handles**, for the dots on the EQ, filter and effect plots, and the dot beside a
+  knob while that parameter is modulated.
+- **Text on colour**, for writing drawn on a group or pad colour.
+- **Button** and **Button text**, and **Selected** and **Selected text**, for the
+  chosen button or tab. **Button** also colours the lines on a plot. It does not fill
+  the plot, and **Text** does not recolour a plug-in picture.
+
+Type a name next to **Theme name** and click **Save theme**. The theme appears in
+**Hardware theme**. **Export** saves that file so you can send it to someone. They
+click **Import** and choose the file. **Remove my copy** deletes only your file, so a
+theme that came with DECKARD comes back. Maschine and LCD keep their own names: save a
+variation under a new one.
+
 ### Making your own
 
 A theme is one small file that lists only what it changes from another theme.
@@ -56,13 +91,13 @@ DECKARD's repository shows how, step by step.
 ## Themes for DECKARD's window
 
 **Preferences ▸ Hardware ▸ Desktop theme** restyles DECKARD's own window with any of
-the themes. It is separate from the controller's theme, so the window and the
-MK3 can each have their own.
+the hand-written themes. It is separate from **Hardware theme**, so the window
+and the MK3 can each have their own. The twelve palettes are for the screens only.
 
 - A theme changes the window's backgrounds, lines and text, in every view.
 - Groups, sounds, patterns and scenes keep the colours you gave them, in every theme.
 - **Maschine** is the ordinary dark window.
-- A theme you made yourself restyles the MK3's screens, but not the window yet.
+- A theme file you saved restyles the MK3. The window's own background and text are set on the **Desktop** tab.
 
 ## Controller scripts
 
