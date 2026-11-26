@@ -22,6 +22,26 @@ work as they do in Maschine, see NI's manual.
   <p>A Sampler Preview's tempo, key, stems and per-slice settings are saved in a part of the project only DECKARD reads. Maschine opens the sound as a plain Sampler, and loses the rest if it saves the project. See <a href="/software/deckard/manual/differences-from-maschine#files-and-maschine">Files and Maschine</a>.</p>
 </aside>
 
+## Type
+
+A Sampler Preview has a **TYPE**, chosen with the three buttons at the right of the
+Sampling view's header, or on the MK3 (see [On the Maschine MK3](#on-the-maschine-mk3)).
+
+<div class="split">
+
+| Type | What the sound does |
+|------|---------------------|
+| **Original** | What Maschine's Sampler does, and no more: nothing is analysed, and there is no tempo, key, stems or per-slice settings. A Sampler you convert to Sampler Preview starts here, so it plays as it did. |
+| **Advanced** | Everything in [Tempo](#tempo), [Key and root](#key-and-root), [Stems](#stems) and [Slices](#slices). A new Sampler Preview starts here. |
+| **Layers** | Every sample is a layer: see [Layers](#layers). There is a **LAYERS** tab where **SLICE** would be, and no slices. |
+
+</div>
+
+Changing the type of a sound that has a sample asks first: **Changing the mode loses all
+changes to this sound.** **OK** keeps the sample you're looking at and starts the sound
+again in the new type; **Cancel** leaves it. One undo step brings everything back. Going
+from **Original** to **Advanced** loses nothing, so the header's button does it at once.
+
 ## Loading a sample
 
 1. Add a **Sampler Preview** to a sound.
@@ -159,8 +179,8 @@ A Sampler Preview sound can play up to eight samples at once, each a **layer**. 
 plays all of them, over the same keys, and **Morph** fades from one to the next as the
 note sounds. A sound with layers has no slices, and a sliced sound has no layers.
 
-Open the **LAYERS** tab of the Sampling view. It's there for a Sampler Preview that isn't
-sliced, even an empty one.
+Set the sound's [type](#type) to **Layers** and open the **LAYERS** tab of the Sampling
+view, which is where **SLICE** is for the other types.
 
 - Drop samples on the lanes: on an empty lane they become new layers, on a layer they
   replace its sample and keep its settings. **+ LAYER** opens a file chooser instead.
@@ -176,6 +196,16 @@ sliced, even an empty one.
 
 The first time a sound gets layers, a One-shot amp envelope becomes an ADSR, so the
 layers sound for as long as you hold the note.
+
+### Editing a take before it has a layer
+
+On a sound that already has layers, a new take waits in the take list until you give it
+a layer. Meanwhile the **EDIT** tab works on the take itself, so you can truncate or
+normalize it first: a take you just recorded is shown there, and so is one you click in
+the list. The edited copy replaces the take in the list, and the recording stays in
+your Recordings folder. Functions that need a zone (**AUTO LOOP**, **STEMS**,
+**MUNGE**, slicing) wait until the take has a layer. A take that is on a layer is
+edited as that layer.
 
 ### A layer's settings
 
@@ -264,12 +294,37 @@ guess.
   stem that will be used and goes round the zone's stems; **APPLY** sets the root, the
   tempo or both from that stem alone.
 
+### Choosing the type
+
+On **RECORD**, knob 5 is **TYPE** while the first knob page shows; it's on the right
+display. Turn it to **Original**, **Advanced** or **Layers**. Nothing changes yet: both
+displays ask, and display button 8, **OK**, goes ahead while display button 7,
+**CANCEL**, drops it. Until you answer, only those two buttons and the **TYPE** knob do
+anything.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-sampler-type.png" alt="The MK3's two displays on the RECORD tab of a sound in Layers. The tabs read RECORD, EDIT, LAYERS, ZONE. The left display has the RECORDING page with MODE at Detect; the right display has TYPE under knob 5, at Layers." loading="lazy" />
+  <figcaption>TYPE is knob 5 on RECORD's first knob page.</figcaption>
+</figure>
+
+### Loop
+
+**EDIT**'s third knob page is **LOOP**, for every type: **ACTIVE**, **START**, **END**
+and **XFADE**. In **Layers** it loops the focused layer.
+
 ### Layers
 
-On a sound with layers, press display button 4 again to go from **ZONE** to **LAYERS**,
-and once more to go back. The left display shows the layers' windows and where the
-morph is, the right display the layers. The pads still play the sounds. Samples are
-added to layers in the software.
+On a sound in **Layers**, display button 3 is **LAYERS**, where **SLICE** is for the
+other types, and display button 4 is **ZONE** as ever. The right display shows the
+layers, each with its envelope drawn over its waveform, a line where it plays, and two
+lines at its loop points when it loops. The left display shows the layers' windows and
+where the morph is; with **MORPH** off it shows the focused layer's waveform and
+envelope, large, with the same lines. The pads still play the sounds.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-sampler-layers.png" alt="The MK3's two displays on the LAYERS tab. The left display draws six layers' windows as coloured triangles across the morph, with a white line where the morph is. The right display lists four layers by name, each with a coloured waveform, its envelope as a white line over it, and its level; layer 2 is focused and layer 3 is muted. The display buttons above read 1 MUTE to 4 MUTE." loading="lazy" />
+  <figcaption>LAYERS: the windows on the morph, and each layer with its envelope.</figcaption>
+</figure>
 
 - Knob 7 picks the layer. Knob 8 is always its **LEVEL**.
 - Display buttons 5 to 8 mute the four layers shown. With <kbd>SHIFT</kbd> they solo.
