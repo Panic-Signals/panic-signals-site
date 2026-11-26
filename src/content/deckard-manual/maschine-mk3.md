@@ -29,7 +29,7 @@ it is.
 ## At a glance
 
 <figure>
-  <img src="/manual/diagrams/mk3-overview.svg" alt="Line drawing of the Maschine MK3. Seven controls are marked in cyan: SHIFT, SELECT, SOLO, STEP, AUTO, KEYBOARD and the two screens." width="1000" height="770" />
+  <img src="/manual/diagrams/mk3-overview.svg" alt="Line drawing of the Maschine MK3. Eight controls are marked in cyan: SHIFT, SELECT, SOLO, STEP, AUTO, KEYBOARD, PAD MODE and the two screens." width="1000" height="770" />
   <figcaption>The MK3, with the controls DECKARD adds to or changes marked in cyan.</figcaption>
 </figure>
 
@@ -42,6 +42,7 @@ it is.
 | 5 | <kbd>AUTO</kbd> | [A switch, not a hold](#auto-is-a-switch). |
 | 6 | <kbd>KEYBOARD</kbd> | Two more knob pages: [Pad Touch](#pad-touch-on-the-keyboard-page). |
 | 7 | Screens | Drawn by DECKARD, in the [theme](/software/deckard/manual/themes-and-scripts) you choose. |
+| 8 | <kbd>PAD MODE</kbd> | [A loop's pad switches it, and stays lit while it plays](#loops-on-their-pads). |
 
 Each new page closes the same way it opens: press the same combination again, or any
 other page's button.
@@ -139,6 +140,31 @@ pads stay free to choose what each step plays.
 <kbd>SHIFT</kbd> + <kbd>STEP</kbd> again goes back. The usual Step mode
 (<kbd>STEP</kbd> on its own) works as the MK3 manual says.
 
+## Seeing what plays
+
+Two things on the MK3 show you what is sounding without opening the Mixer.
+
+**Pads flash white.** A pad turns white for a moment each time a note starts, whether
+the pattern plays it or you do:
+
+- In Pad mode, a sound's pad flashes for every note of that sound.
+- In Keyboard mode, each note of the focused sound flashes the pad of its own pitch, so
+  you can watch a recorded melody move across the pads.
+
+In Maschine a playing pad only gets a brighter shade of its own colour, which is hard
+to see on a pad that is already lit bright, such as the focused sound or the root notes
+of a scale.
+
+**Tiles have level meters.** Wherever the screens show the groups or the focused
+group's sounds as tiles, each tile has two thin bars on its right edge: the left and
+right level of that group or sound. They use the same scale as the Mixer's meters, and
+a silent tile shows none.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/mk3-levels.png" alt="The MK3's two screens on the Pad Mode page. On the left screen the group tiles A1 Drums and B1 Synths each have two thin vertical bars on their right edge, taller on Drums. On the right screen eight sound tiles, Kick, Snare, Closed Hat, Clap, Open Hat, Bass, Keys and Pad, have the same pair of bars at different heights; Clap, which is silent, has none." loading="lazy" />
+  <figcaption>Levels on the group tiles (left) and the sound tiles (right).</figcaption>
+</figure>
+
 ## AUTO is a switch
 
 In Maschine, <kbd>AUTO</kbd> writes automation while you hold it. In DECKARD one press
@@ -150,6 +176,21 @@ Auto-write goes off again when you let go.
 - <kbd>ERASE</kbd> + **knob** removes that knob's automation.
 - <kbd>SHIFT</kbd> + **pad 10** (Clear Auto) removes the focused sound's automation in
   the focused pattern.
+
+## Loops on their pads
+
+In <kbd>PAD MODE</kbd>, a sound's pad shows and controls the loop it plays.
+
+- **An Audio plug-in in Loop mode** plays with the pattern, not with notes. Its pad
+  switches the loop on or off in the pattern the group is playing, as a step pad does.
+  It also picks the sound, as any pad does. With <kbd>ERASE</kbd>, <kbd>SELECT</kbd>,
+  <kbd>MUTE</kbd> or <kbd>SOLO</kbd> held, the pad does what those buttons say instead.
+- **A pad stays fully lit while its loop plays**, on the pad and in the pad grid on the
+  screen, even after you let go. That's an Audio plug-in's loop that's on in the
+  playing pattern, or a Sampler zone looping with a sustaining envelope until its note
+  is released or choked. When the loop stops, the pad goes back to its usual light.
+
+The JAM's pads do the same in its Pad view.
 
 ## Pad Touch on the Keyboard page
 

@@ -137,8 +137,9 @@ function mk3Overview() {
   // FIXED VEL over the column; PAD MODE, KEYBOARD, CHORDS and STEP over the pads' columns.
   o.push(button(458, 300, 84, 28, 'FIXED VEL', { size: 10.5 }));
   ['PAD MODE', 'KEYBOARD', 'CHORDS', 'STEP'].forEach((l, i) =>
-    o.push(button(px + i * 95, 300, 85, 28, l, { size: 10.5, hi: l === 'STEP' || l === 'KEYBOARD' })),
+    o.push(button(px + i * 95, 300, 85, 28, l, { size: 10.5, hi: l === 'STEP' || l === 'KEYBOARD' || l === 'PAD MODE' })),
   );
+  o.push(badge(px + 85, 300, 8));
   o.push(badge(px + 95 + 85, 300, 6));
   o.push(badge(px + 3 * 95 + 85, 300, 4));
   for (let row = 0; row < 4; row++) {
@@ -152,7 +153,7 @@ function mk3Overview() {
   }
   o.push(text(px + 185, 735, 'pads 1–16 (pad 1 bottom left)', { size: 10.5, fill: C.dim }));
 
-  return svg(W, H, 'Maschine MK3 layout, with the controls DECKARD adds to or changes marked 1 to 7', o.join(''));
+  return svg(W, H, 'Maschine MK3 layout, with the controls DECKARD adds to or changes marked 1 to 8', o.join(''));
 }
 
 // A close-up of the display area: eight buttons, two screens, eight knobs.
