@@ -29,7 +29,7 @@ it is.
 ## At a glance
 
 <figure>
-  <img src="/manual/diagrams/mk3-overview.svg" alt="Line drawing of the Maschine MK3. Seven controls are marked in cyan: SHIFT, SELECT, SOLO, STEP, AUTO, KEYBOARD and the two screens." width="1000" height="770" />
+  <img src="/manual/diagrams/mk3-overview.svg" alt="Line drawing of the Maschine MK3. Eight controls are marked in cyan: SHIFT, SELECT, SOLO, STEP, AUTO, KEYBOARD, PAD MODE and the two screens." width="1000" height="770" />
   <figcaption>The MK3, with the controls DECKARD adds to or changes marked in cyan.</figcaption>
 </figure>
 
@@ -42,6 +42,7 @@ it is.
 | 5 | <kbd>AUTO</kbd> | [A switch, not a hold](#auto-is-a-switch). |
 | 6 | <kbd>KEYBOARD</kbd> | Two more knob pages: [Pad Touch](#pad-touch-on-the-keyboard-page). |
 | 7 | Screens | Drawn by DECKARD, in the [theme](/software/deckard/manual/themes-and-scripts) you choose. |
+| 8 | <kbd>PAD MODE</kbd> | [A loop's pad switches it, and stays lit while it plays](#loops-on-their-pads). |
 
 Each new page closes the same way it opens: press the same combination again, or any
 other page's button.
@@ -175,6 +176,21 @@ Auto-write goes off again when you let go.
 - <kbd>ERASE</kbd> + **knob** removes that knob's automation.
 - <kbd>SHIFT</kbd> + **pad 10** (Clear Auto) removes the focused sound's automation in
   the focused pattern.
+
+## Loops on their pads
+
+In <kbd>PAD MODE</kbd>, a sound's pad shows and controls the loop it plays.
+
+- **An Audio plug-in in Loop mode** plays with the pattern, not with notes. Its pad
+  switches the loop on or off in the pattern the group is playing, as a step pad does.
+  It also picks the sound, as any pad does. With <kbd>ERASE</kbd>, <kbd>SELECT</kbd>,
+  <kbd>MUTE</kbd> or <kbd>SOLO</kbd> held, the pad does what those buttons say instead.
+- **A pad stays fully lit while its loop plays**, on the pad and in the pad grid on the
+  screen, even after you let go. That's an Audio plug-in's loop that's on in the
+  playing pattern, or a Sampler zone looping with a sustaining envelope until its note
+  is released or choked. When the loop stops, the pad goes back to its usual light.
+
+The JAM's pads do the same in its Pad view.
 
 ## Pad Touch on the Keyboard page
 

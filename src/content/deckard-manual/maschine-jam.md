@@ -70,6 +70,7 @@ encoder and D-pad.
 | <kbd>BROWSE</kbd> opens an overlay over the app. | DECKARD's own browser panel, in the main window, driven by the same encoder and D-pad. |
 | Pads play harder or softer with pressure. | Every hit plays at the song's Fixed Velocity. |
 | <kbd>SHIFT</kbd> + <kbd>▶</kbd> and two scene buttons set a loop range. | <kbd>SHIFT</kbd> + <kbd>▶</kbd> switches looping on and off. DECKARD has no scene loop range yet. |
+| In the Pad view, a pad plays its sound. | It does, except for a sound whose Audio plug-in is in Loop mode: then the pad switches its loop on or off in the playing pattern. A pad stays lit while its loop plays. See [Loops on their pads](/software/deckard/manual/maschine-mk3#loops-on-their-pads). |
 | <kbd>TUNE</kbd> tunes a group. | It moves the group's Samplers together. Plug-in instruments don't move. |
 | <kbd>AUTO</kbd> writes Level and Swing. | Holding <kbd>AUTO</kbd> and moving a strip writes the parameters of the Control page. The mixer's level and swing aren't written yet. |
 | <kbd>SHIFT</kbd> + <kbd>E</kbd> shows Variation's settings on screen. | The same page in the overlay, and its **Mode** has a third engine, **Euclid**, which Maschine doesn't have. |
