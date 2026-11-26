@@ -20,6 +20,27 @@ Most of Maschine is there and works as NI's manual describes:
   installed;
 - Maschine's keyboard shortcuts, including Take and Step undo.
 
+### Looping part of a song
+
+In the Song view, click **Loop** in the transport to show a highlighted loop range in the
+timeline. Song playback repeats the arrangement inside this range.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/song-loop-region.png" alt="Song view showing the highlighted loop range from bar 5 through bar 12 in the timeline." loading="lazy" />
+  <figcaption>The Song loop range highlighted in the timeline.</figcaption>
+</figure>
+
+- Drag inside the highlighted range to move it.
+- Drag either edge to resize it. The pointer changes to a horizontal resize pointer over
+  the resize area.
+- Moving and resizing snap to complete bars, and the range stays inside the arrangement.
+- The loop state and range are saved with the project.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/song-loop-resize.png" alt="Song view showing the horizontal resize pointer over the right edge of the loop range." loading="lazy" />
+  <figcaption>Hover over either loop edge to resize the range.</figcaption>
+</figure>
+
 DECKARD's versions of Maschine's instruments and effects are its own sound engines,
 written to behave like Maschine's. They're close, but not identical.
 
@@ -100,6 +121,17 @@ can slide it.
 
 Maschine plays the loop from the first beat again.
 
+## Pasting notes at the playhead
+
+While the song is stopped, click the ruler above the pattern to put the playhead there.
+<kbd>⌘V</kbd> then pastes the copied notes at the playhead, keeping their spacing, onto
+the sounds they were copied from. The pattern only gets longer if the notes run past
+its end.
+
+Once you press play, <kbd>⌘V</kbd> pastes after the copied notes again until you put the
+playhead in the pattern again. To paste somewhere else, right-click the note area and
+choose **Paste**: the notes go where you clicked.
+
 ## Without a controller
 
 Three panels in the **View** menu do in the window what otherwise needs hardware:
@@ -111,7 +143,76 @@ Three panels in the **View** menu do in the window what otherwise needs hardware
   included, and what DECKARD sends to each output. It helps when setting up MPE
   keyboards and MIDI CC routes.
 
-=======
+## Session recording
+
+> **Note:** Only in the next release.
+
+DECKARD can record its own master output to a WAV file, for capturing a live set or
+archiving a session. Maschine has nothing like it.
+
+To record:
+
+1. Choose **File ▸ Record Session to File…** and pick where to save it. This *arms*
+   recording and opens the **Session Recorder** window with its live meters and
+   waveform. Nothing is written yet, and the header reads **READY**.
+2. Press **Play ▸** in the window, or <kbd>Space</kbd> while the window is focused, to
+   start recording. The header reads **RECORDING SESSION**.
+3. **Pause ⏸** (or <kbd>Space</kbd> again) holds the recording; the header reads
+   **PAUSED**. Press **Play ▸** to carry on.
+4. Choose **File ▸ Stop Session Recording**, or **Stop** in the window, when you're
+   done. This finalizes the file. If you arm and stop without ever pressing **Play ▸**,
+   no file is written.
+
+Pausing holds the timer and leaves the paused time out of the file. Resuming carries on
+into the same file, so the file holds exactly the audio recorded while playing, with the
+paused spans left out.
+
+The file is named `session-<project>-<date>-<time>.wav` to start with. DECKARD records
+the **master bus**, after its level and pan, as **24-bit stereo at the engine's sample
+rate**. Recording is independent of the song's transport: it captures exactly what you'd
+hear at the master out, whether or not the song is playing.
+
+### The Recorder window
+
+**View ▸ Session Recorder** shows or hides the recorder. It's a fixed-size window with a
+**📌 Pin** toggle, on to start with, that floats it above other windows so you can
+glance at the timer while you work.
+
+<figure class="screenshot narrow">
+  <img src="/manual/screenshots/session-recorder.png" alt="The DECKARD Recorder window mid-recording. Its title bar reads DECKARD Recorder. Below, a red dot and RECORDING SESSION sit beside a highlighted 📌 Pin toggle. A large centred timer reads 00:42:17, and under it: started 22:14, 730.7 MB on disk, ~3h 51m left. A red scrolling stereo waveform fills the middle in two lanes, the left channel above the right. Green L and R level meters below read peak -1.3 dB and peak -2.6 dB. A line reads 48 kHz · 24-bit · stereo, then the file name session-night-run-2026-11-17-2214.wav, and a controls row with a Pause button and a Stop button." loading="lazy" />
+  <figcaption>The Session Recorder window while recording.</figcaption>
+</figure>
+
+It shows:
+
+- its state in the header — **READY**, **RECORDING SESSION** or **PAUSED**;
+- a running **set timer**, counting up as HH:MM:SS, which holds while paused;
+- a scrolling **stereo waveform** of the master output, the left channel above the right;
+- **L** and **R** level meters with their **peak dB**;
+- the **time remaining** before the recording has to stop;
+- the sample rate and the file name;
+- **Play ▸** / **Pause ⏸** and **Stop** controls.
+
+### One recorder at a time
+
+Session recording and the Sampler's own recorder share the engine's single master tap,
+so only one can run at a time. While a session recording is going, sampling into the
+**Sampler** is unavailable, and starting a session recording is unavailable while
+you're sampling.
+
+### When it stops on its own
+
+A session records to one WAV file, and DECKARD keeps that file valid as it goes, so a
+recording survives a crash. It also stops cleanly on its own when:
+
+- free disk space nears the reserve set in **Preferences** (about 1 GB to start with);
+- the file reaches the **4 GB** WAV size ceiling — it's a single file and isn't split;
+- the audio device or the sample rate changes while it's recording.
+
+### Preferences
+
+**Preferences** has a **recording folder** and a **disk-reserve** (in MB) setting for
+session recording.
 
 ## Not there yet
 
