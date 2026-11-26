@@ -4,9 +4,10 @@ test('manual contents lists every chapter in order', async ({ page }) => {
   await page.goto('/software/deckard/manual');
   const items = page.locator('.contents li');
   await expect(items.first()).toContainText('Using this manual');
-  await expect(items).toHaveCount(12);
+  await expect(items).toHaveCount(13);
   await expect(items.nth(8)).toContainText('Multi-output plug-ins');
   await expect(items.nth(10)).toContainText('Controlling modular synths');
+  await expect(items.nth(12)).toContainText('Sampler Preview');
 });
 
 test('a chapter marks itself in the sidebar and numbers its sections', async ({ page }) => {

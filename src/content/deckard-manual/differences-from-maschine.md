@@ -20,6 +20,27 @@ Most of Maschine is there and works as NI's manual describes:
   installed;
 - Maschine's keyboard shortcuts, including Take and Step undo.
 
+### Looping part of a song
+
+In the Song view, click **Loop** in the transport to show a highlighted loop range in the
+timeline. Song playback repeats the arrangement inside this range.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/song-loop-region.png" alt="Song view showing the highlighted loop range from bar 5 through bar 12 in the timeline." loading="lazy" />
+  <figcaption>The Song loop range highlighted in the timeline.</figcaption>
+</figure>
+
+- Drag inside the highlighted range to move it.
+- Drag either edge to resize it. The pointer changes to a horizontal resize pointer over
+  the resize area.
+- Moving and resizing snap to complete bars, and the range stays inside the arrangement.
+- The loop state and range are saved with the project.
+
+<figure class="screenshot">
+  <img src="/manual/screenshots/song-loop-resize.png" alt="Song view showing the horizontal resize pointer over the right edge of the loop range." loading="lazy" />
+  <figcaption>Hover over either loop edge to resize the range.</figcaption>
+</figure>
+
 DECKARD's versions of Maschine's instruments and effects are its own sound engines,
 written to behave like Maschine's. They're close, but not identical.
 
@@ -100,6 +121,17 @@ can slide it.
 
 Maschine plays the loop from the first beat again.
 
+## Pasting notes at the playhead
+
+While the song is stopped, click the ruler above the pattern to put the playhead there.
+<kbd>⌘V</kbd> then pastes the copied notes at the playhead, keeping their spacing, onto
+the sounds they were copied from. The pattern only gets longer if the notes run past
+its end.
+
+Once you press play, <kbd>⌘V</kbd> pastes after the copied notes again until you put the
+playhead in the pattern again. To paste somewhere else, right-click the note area and
+choose **Paste**: the notes go where you clicked.
+
 ## Without a controller
 
 Three panels in the **View** menu do in the window what otherwise needs hardware:
@@ -110,8 +142,6 @@ Three panels in the **View** menu do in the window what otherwise needs hardware
 - **View ▸ MIDI Monitor** lists what comes in on each MIDI input, the MK3's pads
   included, and what DECKARD sends to each output. It helps when setting up MPE
   keyboards and MIDI CC routes.
-
-=======
 
 ## Not there yet
 
